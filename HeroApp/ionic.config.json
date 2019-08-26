@@ -1,0 +1,7 @@
+{
+  "name": "HeroApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
