@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'payment-info', loadChildren: './payment-info/payment-info.module#PaymentInfoPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'register-new', loadChildren: './register-new/register-new.module#RegisterNewPageModule' },
+  { path: 'register-returning', loadChildren: './register-returning/register-returning.module#RegisterReturningPageModule' },
 
 ];
 
