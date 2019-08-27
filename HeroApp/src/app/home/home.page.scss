@@ -1,1 +1,19 @@
+.button-bottom{
+  position: fixed;
+  left: 0;
+  bottom: 20px;
+  right: 0;
+}
 
+ion-button{
+    --background: #63adeb;
+    --color: white;
+    --padding-bottom: 16px;
+    min-width: 80%;
+    --padding-top: 16px;
+    --padding-start: 64px;
+    --padding-end: 64px;
+    --background-hover: #131d6e;
+    --color-hover: white;
+    --background-activated: #131d6e;
+}
