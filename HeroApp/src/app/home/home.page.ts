@@ -15,4 +15,8 @@ export class HomePage {
      this.navCtrl.navigateRoot('/login');
   }
 
+  goToPaymentInfo() {
+    this.navCtrl.navigateRoot('/payment-info')
+  }
+
 }
