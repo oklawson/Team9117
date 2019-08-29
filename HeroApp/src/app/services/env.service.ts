@@ -6,6 +6,6 @@ import { NavController } from '@ionic/angular';
 })
 export class EnvService {
   API_URL = '';
-  public navCtrl : NavController;
+
   constructor() { }
 }

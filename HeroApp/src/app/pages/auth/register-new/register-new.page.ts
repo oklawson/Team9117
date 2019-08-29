@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-register-new',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterNewPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public navCtrl: NavController,
+	private authService: AuthService,
+	private alertService: AlertService
+  ) { }
 
   ngOnInit() {
+  }
+
+  register(form: NgForm) {
+  	  // call authService.register
   }
 
 }
