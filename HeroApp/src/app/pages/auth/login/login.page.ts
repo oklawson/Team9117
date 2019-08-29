@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navtrl: NavController) { }
 
   goToRegister(){
     this.navCtrl.navigateRoot('/register');
