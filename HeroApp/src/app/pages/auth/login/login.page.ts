@@ -24,8 +24,12 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('/register');
   }
 
+  goToHome(){
+    this.navCtrl.navigateRoot('/home');
+  }
+
   login(form: NgForm) {
-  	  // call authService.login 
+  	  // call authService.login
   }
 
 }
