@@ -24,7 +24,7 @@
               </ion-item>
             </div>
             <div text-center>
-              <ion-button size="large" type="submit" [disabled]="form.invalid" >Login</ion-button>
+              <ion-button (click)="goToHome()" size="large" type="submit" [disabled]="form.invalid" >Login</ion-button>
               <ion-button (click)="goToRegister()" size="large">Register</ion-button>
             </div>
           </ion-col>

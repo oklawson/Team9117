@@ -30,6 +30,10 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('/register');
   }
 
+  goToHome(){
+    this.navCtrl.navigateRoot('/home');
+  }
+
   login(form: NgForm) {
   	  // call authService.login 
 
@@ -49,7 +53,6 @@ export class LoginPage implements OnInit {
           console.log("nothing found");
         }
       );
-
   }
 
 }
