@@ -9,11 +9,18 @@
 <ion-content>
 
   <div class="ion-text-center">
-    <h3>My Hero App</h3>
+    <h3>My Hero Card</h3>
+    <ion-card>
+
+      <ion-card-content>
+      </ion-card-content>
+
+    </ion-card>
+
       <div class="button-bottom">
-          <ion-button size="large" (click)="goToLogin()">My Rewards</ion-button>
+          <ion-button size="large" (click)="goToRewards()">My Rewards</ion-button>
           <br>
-          <ion-button size="large">Discount Locations</ion-button>
+          <ion-button size="large" (click)="goToDiscounts()">Discount Locations</ion-button>
           <br>
           <ion-button size="large" (click)="goToPaymentInfo()">Manage Account</ion-button>
       </div>

@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/auth/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/auth/register/register.module#RegisterPageModule' },
   { path: 'register-new', loadChildren: './pages/auth/register-new/register-new.module#RegisterNewPageModule' },
-  { path: 'register-returning', loadChildren: './pages/auth/register-returning/register-returning.module#RegisterReturningPageModule' },
+  { path: 'register-returning', loadChildren: './pages/auth/register-returning/register-returning.module#RegisterReturningPageModule' },  { path: 'rewards', loadChildren: './rewards/rewards.module#RewardsPageModule' },
+  { path: 'discounts', loadChildren: './pages/discounts/discounts.module#DiscountsPageModule' },
+
 ];
 
 @NgModule({

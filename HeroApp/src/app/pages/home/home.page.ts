@@ -16,7 +16,15 @@ export class HomePage {
   }
 
   goToPaymentInfo() {
-    this.navCtrl.navigateRoot('/payment-info')
+    this.navCtrl.navigateForward('/payment-info')
+  }
+
+  goToRewards() {
+    this.navCtrl.navigateForward('/rewards')
+  }
+
+  goToDiscounts() {
+    this.navCtrl.navigateForward('/discounts')
   }
 
 }
