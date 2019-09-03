@@ -27,4 +27,8 @@ export class HomePage {
     this.navCtrl.navigateForward('/discounts')
   }
 
+  goToManageAccount() {
+    this.navCtrl.navigateForward('/manage-account')
+  }
+
 }
