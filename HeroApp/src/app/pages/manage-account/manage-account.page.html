@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Manage Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+        <ion-item (click)="goToPaymentInfo()">Payment Information</ion-item>
+        <ion-item (click)="goToPaymentInfo()">App Permissions</ion-item>
+  </ion-list>
+
+  <div class="ion-text-center">
+    <div class="button-bottom">
+        <ion-button size="med" (click)="goToLogin()" routerDirection='root'>Logout</ion-button>
+    </div>
+  </div>
+
+</ion-content>
