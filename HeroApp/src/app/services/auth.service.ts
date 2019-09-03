@@ -21,6 +21,15 @@ export class AuthService {
 
   // fill with login, register, logout auth methods
 
+  clearToken() {
+    
+  }
+
+  setToken(value: string) {
+    this.token = value;
+    this.isLoggedIn=true;
+  }
+
   getToken() {
   	return this.storage.getItem('token').then(
 	data => {
