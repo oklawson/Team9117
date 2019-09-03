@@ -6,6 +6,7 @@ import { NavController } from '@ionic/angular';
 })
 export class EnvService {
   API_URL = '';
+  sheetsu_url = 'https://sheetsu.com/apis/v1.0su/fee85c97ac5f';
 
   constructor() { }
 }
