@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <!-- <ion-toolbar>
     <ion-title>Login</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ion-content class="login">
@@ -13,12 +13,14 @@
               <h3 class="white">Login to your account</h3>
             </div>
             <div padding>
-              <ion-item>
-                <ion-input name="email" type="email" placeholder="Email" ngModel required></ion-input>
-              </ion-item>
-              <ion-item>
-                <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
-              </ion-item>
+              <ion-card>
+                <ion-item>
+                  <ion-input name="email" type="email" placeholder="Email" ngModel required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+                </ion-item>
+              </ion-card>
             </div>
             <div text-center>
               <ion-button (click)="goToHome()" size="large" type="submit" [disabled]="form.invalid" >Login</ion-button>
@@ -28,5 +30,5 @@
         </ion-row>
       </ion-grid>
     </form>
-  <div class="ion-text-center white"><p>Forgot Password?</p></div>
+  <!-- <div class="ion-text-center white"><p>Forgot Password?</p></div> -->
 </ion-content>
