@@ -24,3 +24,20 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+ion-content {
+  --background: url('assets/bg.svg') top left/cover no-repeat;
+}
+
+ion-card {
+  --background: #fff !important;
+}
+
+ion-button {
+  --background: #43BCCD !important;
+}
+
+.white {
+  color: #fff;
+}
