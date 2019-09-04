@@ -1,7 +1,4 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Register Existing Member</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -13,9 +10,19 @@
                 <h3>Connect your Hero Card to the Hero App!</h3>
               </div>
               <div padding>
-                <ion-item>
-                  <ion-input  name="cardnumber" type="text" placeholder="Enter your Hero Card number" ngModel required></ion-input>
-                </ion-item>
+                <ion-card>
+                  <ion-card-content>
+                    <ion-item>
+                      <ion-input  name="email" type="text" placeholder="Enter your email" ngModel required></ion-input>
+                    </ion-item>
+                    <br><br>
+                    <div text-center><h2>OR</h2></div>
+                    <br>
+                    <ion-item>
+                      <ion-input  name="cardnumber" type="text" placeholder="Enter your Hero Card number" ngModel required></ion-input>
+                    </ion-item>
+                  </ion-card-content>
+                </ion-card>
               </div>
               <div text-center>
                 <ion-button size="large" type="submit" [disabled]="form.invalid" >Connect Card</ion-button>
