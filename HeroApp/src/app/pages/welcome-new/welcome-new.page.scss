@@ -1,17 +1,20 @@
-.button-bottom{
-  position: fixed;
-  left: 0;
-  bottom: 20px;
-  right: 0;
+.ion-card {
+  margin: 20%;
 }
 
 .header {
+  font-size: 3em;
   padding-top: 40px;
   color: white;
 }
 
-.content{
-  padding-top: 100px;
+.content {
+  padding-top: 30px;
   padding-left: 40px;
   padding-right: 40px;
+  padding-bottom: 40px;
+}
+
+.update-later {
+  padding: 5px;
 }
