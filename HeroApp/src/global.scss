@@ -26,16 +26,12 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
-ion-content {
+ion-content.background {
   --background: url('assets/bg.svg') top left/cover no-repeat;
 }
 
 ion-card {
   --background: #fff !important;
-}
-
-ion-button {
-  --background: #43BCCD !important;
 }
 
 .white {
