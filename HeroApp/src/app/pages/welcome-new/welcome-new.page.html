@@ -1,21 +1,25 @@
 <ion-header>
 </ion-header>
 
-<ion-content>
-  <div class="ion-text-center">
+<ion-content class="background">
+  <div class="ion-text-center" padding>
     <div class="header">
       <h1>Welcome!</h1>
     </div>
-    <div class="content">
-      <h6>You are now a Hero Card Member!</h6>
-      <br>
-      <p>In order to gain access to all of the Hero Card benefits please subscribe to the service by
-      going to manage account and clicking on "Payment Info"</p>
-      <br>
-      <p>Enjoy your discounts!</p>
-    </div>
-    <div class="button-bottom">
-      <ion-button size="large" (click)="goToHome()">Continue</ion-button>
-    </div>
+    <ion-card>
+      <ion-card-content>
+
+        <div class="content">
+          <h6>You are now a Hero Card Member!</h6>
+          <br>
+          <p>To get all the benefits please subscribe to the Hero Card service. Click the button
+          below to update your current information.</p>
+        </div>
+        <div class="button-bottom">
+          <ion-button size="large" (click)="goToPaymentInfo()">Update Payment Info</ion-button>
+        </div>
+        <p class="update-later" (click)="goToHome()">Update Later</p>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
