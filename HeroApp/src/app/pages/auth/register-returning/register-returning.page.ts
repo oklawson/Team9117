@@ -20,9 +20,13 @@ export class RegisterReturningPage implements OnInit {
   ngOnInit() {
   }
 
-  register(form: NgForm) {
+  registerReturning(form: NgForm) {
   	  // call authService.register with extra authentication
 	  // to link with their hero account
+  }
+
+  goToWelcomeReturning(){
+    this.navCtrl.navigateRoot('/welcome-returning');
   }
 
 }

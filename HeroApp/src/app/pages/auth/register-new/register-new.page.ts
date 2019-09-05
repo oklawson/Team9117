@@ -20,8 +20,12 @@ export class RegisterNewPage implements OnInit {
   ngOnInit() {
   }
 
-  register(form: NgForm) {
+  registerNew(form: NgForm) {
   	  // call authService.register
+  }
+
+  goToWelcomeNew() {
+    this.navCtrl.navigateRoot('/welcome-new');
   }
 
 }

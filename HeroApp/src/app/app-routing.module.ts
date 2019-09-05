@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'register-returning', loadChildren: './pages/auth/register-returning/register-returning.module#RegisterReturningPageModule' },  { path: 'rewards', loadChildren: './rewards/rewards.module#RewardsPageModule' },
   { path: 'discounts', loadChildren: './pages/discounts/discounts.module#DiscountsPageModule' },
   { path: 'manage-account', loadChildren: './pages/manage-account/manage-account.module#ManageAccountPageModule' },
+  { path: 'welcome-returning', loadChildren: './pages/welcome-returning/welcome-returning.module#WelcomeReturningPageModule' },
+  { path: 'welcome-new', loadChildren: './pages/welcome-new/welcome-new.module#WelcomeNewPageModule' },
 
 ];
 
