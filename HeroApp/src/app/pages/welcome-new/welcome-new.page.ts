@@ -18,7 +18,8 @@ export class WelcomeNewPage implements OnInit {
   }
 
   goToPaymentInfo() {
-    this.navCtrl.navigateForward('/payment-info')
+    //this.navCtrl.navigateForward('/payment-info');
+    this.navCtrl.navigateRoot('/home').then(()=> {this.navCtrl.navigateForward('/payment-info');});
   }
 
 }

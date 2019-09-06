@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-welcome-returning',
   templateUrl: './welcome-returning.page.html',
@@ -17,8 +18,9 @@ export class WelcomeReturningPage implements OnInit {
     this.navCtrl.navigateRoot('/home');
   }
 
-  goToPaymentInfo() {
-    this.navCtrl.navigateForward('/payment-info')
+  async goToPaymentInfo() {
+    this.navCtrl.navigateRoot('/home').then(()=> {this.navCtrl.navigateForward('/payment-info');});
+
   }
   
 }
