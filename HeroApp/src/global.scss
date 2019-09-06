@@ -46,6 +46,21 @@ ion-button {
   --background-activated: #043289;
 }
 
+ion-button.white {
+    --background: white;
+    --border-color: #131d6e;
+    --border-style: solid;
+    --border-width: 2px;
+    --color: black;
+    --padding-bottom: 16px;
+    --padding-top: 16px;
+    --padding-start: 64px;
+    --padding-end: 64px;
+    --background-hover: #131d6e;
+    --color-hover: white;
+    --background-activated: #131d6e;
+}
+
 
 .white {
   color: #fff;
