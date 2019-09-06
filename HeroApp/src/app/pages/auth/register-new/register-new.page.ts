@@ -22,6 +22,10 @@ export class RegisterNewPage implements OnInit {
 
   registerNew(form: NgForm) {
   	  // call authService.register
+
+      if (true) {
+        goToWelcomeNew();
+      }
   }
 
   goToWelcomeNew() {
