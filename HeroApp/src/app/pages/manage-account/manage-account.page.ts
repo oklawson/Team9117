@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-manage-account',
@@ -8,7 +9,15 @@ import { NavController } from '@ionic/angular';
 })
 export class ManageAccountPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(
+    public navCtrl: NavController,
+  private authService: AuthService
+  ) {}
+
+    logout() {
+      this.authService.logout();
+      this.goToLogin();
+    }
 
     goToLogin() {
        this.navCtrl.navigateRoot('/login');

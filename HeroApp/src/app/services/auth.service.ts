@@ -21,8 +21,13 @@ export class AuthService {
 
   // fill with login, register, logout auth methods
 
+  logout() {
+    this.clearToken();
+  }
+
   clearToken() {
-    
+    this.token = null;
+    this.isLoggedIn=false;
   }
 
   setToken(value: string) {

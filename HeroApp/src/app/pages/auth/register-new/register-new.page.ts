@@ -24,7 +24,7 @@ export class RegisterNewPage implements OnInit {
   	  // call authService.register
 
       if (true) {
-        goToWelcomeNew();
+        this.goToWelcomeNew();
       }
   }
 
