@@ -16,11 +16,11 @@ export class RegisterPage implements OnInit {
   }
 
   goToRegisterNew(){
-    this.navCtrl.navigateRoot('/register-new');
+    this.navCtrl.navigateForward('/register-new');
   }
 
   goToRegisterReturning(){
-    this.navCtrl.navigateRoot('/register-returning');
+    this.navCtrl.navigateForward('/register-returning');
   }
 
 }
