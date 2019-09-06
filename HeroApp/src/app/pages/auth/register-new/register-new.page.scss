@@ -1,15 +1,20 @@
+.header {
+  padding-top: 30px;
+  color: white;
+}
+
 ion-item{
     --background:white;
     --color: #131d6e;
     --padding-bottom: 16px;
-    --padding-top: 32px;
+    --padding-top: 16px;
 }
 
 ion-button{
     --background: white;
     --border-color: #131d6e;
     --border-style: solid;
-    --border-width: 2px; 
+    --border-width: 2px;
     --color: black;
     --padding-bottom: 16px;
     --padding-top: 16px;
