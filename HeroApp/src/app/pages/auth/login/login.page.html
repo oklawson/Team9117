@@ -31,12 +31,14 @@
               </ion-row>
             </ion-grid> -->
             <div text-center>
-              <ion-button (click)="goToHome()" class="ion-padding-end"  size="large" type="submit" [disabled]="form.invalid" >Login</ion-button>
-              <ion-button (click)="goToRegister()"  size="large">Register</ion-button>
+              <ion-button class="ion-padding-end"  size="large" type="submit" [disabled]="form.invalid" >Login</ion-button>
+              <!-- register button isn't actually associated with the form it's in -->
+              <ion-button (click)="goToRegister()" size="large" align-self-center>Register</ion-button>
             </div>
           </ion-col>
         </ion-row>
       </ion-grid>
     </form>
+
   <!-- <div class="ion-text-center white"><p>Forgot Password?</p></div> -->
 </ion-content>

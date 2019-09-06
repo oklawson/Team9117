@@ -38,6 +38,10 @@ export class LoginPage implements OnInit {
   	  // call authService.login 
 
       // for now just using sheetsu
+
+      this.alertService.presentToast("Verifying login...");
+
+
       let email: string = form.value.email;
       let pass: string = form.value.password;
       console.log(email + " " + pass);
@@ -47,10 +51,11 @@ export class LoginPage implements OnInit {
         success => {
           console.log("found user/pass");
           this.authService.setToken("dummy thicc");
-          this.navCtrl.navigateRoot('/payment-info');
+          this.navCtrl.navigateRoot('/home');
         },
         fail => {
           console.log("nothing found");
+          this.alertService.presentToast("Incorrect login!");
         }
       );
   }
