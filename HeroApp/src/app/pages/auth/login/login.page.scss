@@ -1,7 +1,18 @@
-ion-item{
+ion-item {
     --padding-bottom: 16px;
     --padding-top: 16px;
     --padding-end: 32px;
+}
+
+.header {
+  font-size: 3em;
+  padding-top: 40px;
+  color: white;
+}
+
+.button-div {
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 
@@ -20,4 +31,3 @@ ion-item{
 //   --color-hover: white;
 //   --background-activated: #131d6e;
 // }
-

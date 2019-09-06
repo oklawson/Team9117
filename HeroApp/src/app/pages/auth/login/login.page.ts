@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
 	}
 
   goToRegister(){
-    this.navCtrl.navigateRoot('/register');
+    this.navCtrl.navigateForward('/register');
   }
 
   goToHome(){
@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
   }
 
   login(form: NgForm) {
-  	  // call authService.login 
+  	  // call authService.login
 
       // for now just using sheetsu
 
