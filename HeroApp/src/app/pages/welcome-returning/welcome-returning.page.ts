@@ -17,4 +17,8 @@ export class WelcomeReturningPage implements OnInit {
     this.navCtrl.navigateRoot('/home');
   }
 
+  goToPaymentInfo() {
+    this.navCtrl.navigateForward('/payment-info')
+  }
+  
 }
