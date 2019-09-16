@@ -19,6 +19,41 @@ export class AuthService {
     private env: EnvService,
   ) { }
 
+  // email and password authentication methods
+  validateEmail(email: string): boolean {
+    
+    let isValid: boolean = true;
+    // todo: actually fill this out
+
+
+
+
+    if (isValid) {
+      console.log(email + " is a valid email");
+      return true;
+    }
+    return false;
+
+  }
+
+  validatePassword(password: string): boolean {
+    
+    let isValid: boolean = true;
+    // todo: actually fill this out
+
+
+
+
+    if (isValid) {
+      console.log(password + " is a valid password");
+      return true;
+    }
+    return false;
+
+  }
+
+
+
   // fill with login, register, logout auth methods
 
   logout() {
