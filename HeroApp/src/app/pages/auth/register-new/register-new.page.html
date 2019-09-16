@@ -18,15 +18,15 @@
                   </ion-item>
                   <ion-item>
                     <ion-label position="floating">Email</ion-label>
-                    <ion-input name="email" type="email" ngModel required></ion-input>
+                    <ion-input name="email" type="email" ngModel required (ngModelChange)="checkEmail($event)"></ion-input>
                   </ion-item>
                   <ion-item>
                     <ion-label position="floating">Password</ion-label>
-                    <ion-input name="password" type="password" ngModel required></ion-input>
+                    <ion-input name="password" type="password" ngModel required (ngModelChange)="checkPassword($event)"></ion-input>
                   </ion-item>
                   <ion-item>
                       <ion-label position="floating">Confirm Password</ion-label>
-                    <ion-input name="confirm" type="password" ngModel required></ion-input>
+                    <ion-input name="confirm" type="password" ngModel required (ngModelChange)="confirmPassword($event)"></ion-input>
                   </ion-item>
                 </div>
                 <div class="button-div" text-center>
