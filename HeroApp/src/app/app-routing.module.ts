@@ -16,6 +16,9 @@ const routes: Routes = [
   { path: 'manage-account', loadChildren: './pages/manage-account/manage-account.module#ManageAccountPageModule' },
   { path: 'welcome-returning', loadChildren: './pages/welcome-returning/welcome-returning.module#WelcomeReturningPageModule' },
   { path: 'welcome-new', loadChildren: './pages/welcome-new/welcome-new.module#WelcomeNewPageModule' },
+  { path: 'reset-password', loadChildren: './pages/auth/reset-password/reset-password.module#ResetPasswordPageModule' },
+  { path: 'reset-email', loadChildren: './pages/auth/reset-email/reset-email.module#ResetEmailPageModule' },
+
 
 ];
 

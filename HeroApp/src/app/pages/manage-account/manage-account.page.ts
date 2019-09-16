@@ -27,4 +27,12 @@ export class ManageAccountPage {
       this.navCtrl.navigateForward('/payment-info')
     }
 
+    goToResetEmail() {
+      this.navCtrl.navigateForward('/reset-email')
+    }
+
+    goToResetPassword() {
+      this.navCtrl.navigateForward('/reset-password')
+    }
+
 }

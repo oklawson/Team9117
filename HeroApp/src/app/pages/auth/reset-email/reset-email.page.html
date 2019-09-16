@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="manage-account"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Change Email</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form  #form="ngForm" (ngSubmit)="login(form)">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+                <div class="emailPadding">Current Email</div>
+                <div class="currentEmailPadding">example@email.com</div>
+                <ion-item class="newEmail">
+                  <ion-label position="floating">New Email</ion-label>
+                  <ion-input name="email" type="email" ngModel required></ion-input>
+                </ion-item>
+                <div class="button-div" text-center>
+                  <ion-button size="med" type="submit" [disabled]="form.invalid">Next</ion-button>
+                  <!-- register button isn't actually associated with the form it's in -->
+                </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>
