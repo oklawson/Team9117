@@ -10,21 +10,14 @@ export class AlertService {
 
   constructor(private toastController: ToastController) { }
 
-  async presentToast(message: any) {
 
-    if (this.toastInstance == null) {
-      let toast = await this.toastController.create({
-        message: message,
-        duration: 2000,
-        position: 'top',
-        color: 'dark'
-      });
-      toast.present();
-      this.toastInstance = toast;
+  async presentToast(...args: any[]) {
+    let message: any = args[0];
+    let d: number = 3000;
+    if (args[1])
+    {
+      d = args[1];
     }
-  }
-
-  async presentToast(message: any, d: number) {
 
     //if (this.toastInstance == null) {
     this.toastController.dismiss();
