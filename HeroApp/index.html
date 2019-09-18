@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Learning Shit</title>
+  <script type="text/javascript">
+    function refreshData(){
+      var display = document.getElementById("content");
+      var doc = document;
+      var binaryData = [];
+      var xmlhttp = new XMLHttpRequest();
+      // xmlhttp.responseType = 'blob';
+      xmlhttp.open("GET", "database_connection2.php");
+      xmlhttp.setRequestHeader("Content-Type", "application/json");
+      xmlhttp.send(" ");
+      xmlhttp.onload = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            //var data = JSON.parse(xmlhttp.responseText);
+            // console.log(data);
+            //var script = doc.createElement('script'), src = URL.createObjectURL(new Blob(binaryData, {type: "application/zip"}));
+            //binaryData.push(xmlhttp.response);
+           // script.src = src;
+            //doc.body.appendChild(script);
+            console.log(this.response);
+            // eval(this.responseText);
+            display.innerHTML = this.response;
+        } else {
+          display.innerHTML = "Loading...";
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick=refreshData()>Say Hello</button>
+  <div id="content" />
+
+  <!-- <script src="db_connection2.js"></script> -->
+
+</body>
