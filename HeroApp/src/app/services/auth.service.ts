@@ -26,15 +26,11 @@ export class AuthService {
 		public afAuth: AngularFireAuth
   ) {}
 
-  getCurrentUser(){
-    return firebase.auth().currentUser;
-  }
-
   doRegister(value){
    return new Promise<any>((resolve, reject) => {
      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
      .then(
-       res => resolve(res),
+       res => { resolve(res); },
        err => reject(err))
    }).then(
      () => {
@@ -44,12 +40,16 @@ export class AuthService {
   }
 
   doLogin(value){
-   return new Promise<any>((resolve, reject) => {
-     firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-     .then(
-       res => resolve(res),
-       err => reject(err))
-   })
+
+  return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(res => {
+      return new Promise<any>((resolve, reject) => {
+        firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+        .then(
+          res => { resolve(res); },
+          err => reject(err))
+      });
+    });
   }
 
 	doLogout(){

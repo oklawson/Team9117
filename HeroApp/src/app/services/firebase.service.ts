@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
+
+export interface User { userId: string; name: string; email: string; card: string; };
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FirebaseService {
 
   private snapshotChangesSubscription: any;
+  
   private database: any;
+  private currentUser: any;
 
   constructor(
     public afs: AngularFirestore,
@@ -18,22 +22,103 @@ export class FirebaseService {
   ){
     console.log("firebase");
     console.log(firebase);
+    this.updateCurrentUserName("bbbbb");
+  }
+
+  updateCurrentUserName(name) {
+    // check that authenticated user is signed in  
+    if (firebase.auth().currentUser) {
+      return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
+          name: name,
+        });
+    }
+    else
+    {
+      console.log("Not authenticated");
+      return null;
+    }
+  }
+
+  updateCurrentUserEmail(email) {
+    // check that authenticated user is signed in  
+    if (firebase.auth().currentUser) {
+      // first update authenticated email address
+      return firebase.auth().currentUser.updateEmail(email)
+      .then(() => {
+        // then update the actual database entry
+        return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
+            email: email,
+          });
+        });
+    }
+    else
+    {
+      console.log("Not authenticated");
+      return null;
+    }
+  }
+
+  updateCurrentUserCardNumber(cardNumber) {
+    // check that authenticated user is signed in  
+    if (firebase.auth().currentUser) {
+      return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
+          card: cardNumber,
+        });
+    }
+    else
+    {
+      console.log("Not authenticated");
+      return null;
+    }
+  }
+
+  updateCurrentUserData(name, email, cardNumber) {
+    // check that authenticated user is signed in  
+    if (firebase.auth().currentUser) {
+      if (cardNumber != null) {
+        return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
+          //userId: firebase.auth().currentUser.uid,
+          name: name,
+          email: email,
+          card: cardNumber
+        });
+      } else {
+          return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
+          //userId: firebase.auth().currentUser.uid,
+          name: name,
+          email: email
+        });
+      }
+    }
+    else
+    {
+      console.log("Not authenticated");
+      return null;
+    }
   }
 
   writeUserData(userId, name, email, cardNumber) {
-    if (cardNumber != null) {
-      this.afs.collection('users/').add({
-        userId: userId,
-        name: name,
-        email: email,
-        card: cardNumber
-      });
-    } else {
-        this.afs.collection('users/').add({
-        userId: userId,
-        name: name,
-        email: email
-      });
+    // check that authenticated user is signed in  
+    if (firebase.auth().currentUser) {
+      if (cardNumber != null) {
+        return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).set({
+          userId: userId,
+          name: name,
+          email: email,
+          card: cardNumber
+        });
+      } else {
+          return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).set({
+          userId: userId,
+          name: name,
+          email: email
+        });
+      }
+    }
+    else
+    {
+      console.log("Not authenticated");
+      return null;
     }
   }
 
@@ -63,11 +148,18 @@ export class FirebaseService {
       })
     });
   }
-  // unused from tutorial
   unsubscribeOnLogOut(){
     //remember to unsubscribe from the snapshotChanges
     this.snapshotChangesSubscription.unsubscribe();
   }
+
+
+
+
+
+
+  //-------------------------------------------------------------------------------------------------------------------
+
   // unused from tutorial
   updateTask(taskKey, value){
     return new Promise<any>((resolve, reject) => {

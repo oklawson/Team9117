@@ -15,9 +15,6 @@ export class ManageAccountPage {
   ) {}
 
     logout() {
-
-      console.log(this.authService.getCurrentUser()); 
-
       this.authService.doLogout().then(
       res => {
         console.log("logged out successfully");
