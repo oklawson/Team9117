@@ -10,12 +10,34 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FirebaseService {
 
   private snapshotChangesSubscription: any;
+  private database: any;
 
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth
-  ){}
+  ){
+    console.log("firebase");
+    console.log(firebase);
+  }
 
+  writeUserData(userId, name, email, cardNumber) {
+    if (cardNumber != null) {
+      this.afs.collection('users/').add({
+        userId: userId,
+        name: name,
+        email: email,
+        card: cardNumber
+      });
+    } else {
+        this.afs.collection('users/').add({
+        userId: userId,
+        name: name,
+        email: email
+      });
+    }
+  }
+
+  // unused from tutorial
   getTasks(){
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
@@ -26,7 +48,7 @@ export class FirebaseService {
       })
     })
   }
-
+  // unused from tutorial
   getTask(taskId){
     return new Promise<any>((resolve, reject) => {
       this.afAuth.user.subscribe(currentUser => {
@@ -41,12 +63,12 @@ export class FirebaseService {
       })
     });
   }
-
+  // unused from tutorial
   unsubscribeOnLogOut(){
     //remember to unsubscribe from the snapshotChanges
     this.snapshotChangesSubscription.unsubscribe();
   }
-
+  // unused from tutorial
   updateTask(taskKey, value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
@@ -57,7 +79,7 @@ export class FirebaseService {
       )
     })
   }
-
+  // unused from tutorial
   deleteTask(taskKey){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;
@@ -68,7 +90,7 @@ export class FirebaseService {
       )
     })
   }
-
+  // unused from tutorial
   createTask(value){
     return new Promise<any>((resolve, reject) => {
       let currentUser = firebase.auth().currentUser;

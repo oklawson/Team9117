@@ -39,10 +39,13 @@ export class LoginPage implements OnInit {
     this.authService.doLogin(form.value)
     .then(
       res => {
+        console.log(form.value.email + " logged in successfully");
         this.goToHome();
       }, 
       err => {
         console.log(err);
+        // TODO: maybe search for the email address and tell user whether or not that is correct
+        this.alertService.presentToast("Username/Password combination does not exist");
       });
   }
 

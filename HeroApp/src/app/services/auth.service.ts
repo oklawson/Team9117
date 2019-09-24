@@ -26,13 +26,21 @@ export class AuthService {
 		public afAuth: AngularFireAuth
   ) {}
 
+  getCurrentUser(){
+    return firebase.auth().currentUser;
+  }
+
   doRegister(value){
    return new Promise<any>((resolve, reject) => {
      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
      .then(
        res => resolve(res),
        err => reject(err))
-   })
+   }).then(
+     () => {
+       this.firebaseService.writeUserData(firebase.auth().currentUser.uid, value.name, value.email, null);
+     }
+   )
   }
 
   doLogin(value){
@@ -56,9 +64,6 @@ export class AuthService {
     })
   }
 
-  // delete below methods if safe
-  //---------------------------------------------------------------
-
   // email and password authentication methods
   validateEmail(email: string): boolean {
     
@@ -66,7 +71,7 @@ export class AuthService {
     // todo: actually fill this out
 
     if (isValid) {
-      console.log(email + " is a valid email");
+      //console.log(email + " is a valid email");
       return true;
     }
     return false;
@@ -78,45 +83,10 @@ export class AuthService {
     // todo: actually fill this out
 
     if (isValid) {
-      console.log(password + " is a valid password");
+      //console.log(password + " is a valid password");
       return true;
     }
     return false;
   }
 
-
-
-  // fill with login, register, logout auth methods
-
-  logout() {
-    this.clearToken();
-  }
-
-  clearToken() {
-    this.token = null;
-    this.isLoggedIn=false;
-  }
-
-  setToken(value: string) {
-    this.token = value;
-    this.isLoggedIn=true;
-  }
-
-  getToken() {
-  	return this.storage.getItem('token').then(
-	data => {
-		this.token = data;
-
-		if (this.token != null) {
-		this.isLoggedIn=true;
-		} else {
-		this.isLoggedIn=false;
-		}
-	},
-	error => {
-		this.token = null;
-		this.isLoggedIn=false;
-	}
-	);
-  }
 }
