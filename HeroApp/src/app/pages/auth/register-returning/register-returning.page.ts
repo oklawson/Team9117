@@ -24,10 +24,10 @@ export class RegisterReturningPage implements OnInit {
     if (email) { // this stops weird stuff from happening when email is empty
       if (this.authService.validateEmail(email)) {
         // add good visual here
-        this.alertService.presentToast("valid email!", 500);
+        //this.alertService.presentToast("valid email!", 500);
       } else {
         // bad visual here
-        this.alertService.presentToast("invalid email!", 500);
+        //this.alertService.presentToast("invalid email!", 500);
       }
     }
   }
@@ -37,11 +37,14 @@ export class RegisterReturningPage implements OnInit {
 	  // to link with their hero account
 
 
-
-
-      if (true) {
+    this.authService.doRegister(form.value)
+      .then(
+      res => {
         this.goToWelcomeReturning();
-      }
+      }, 
+      err => {
+        console.log(err);
+      });
   }
 
   goToWelcomeReturning(){

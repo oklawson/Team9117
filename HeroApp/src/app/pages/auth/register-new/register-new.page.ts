@@ -26,10 +26,10 @@ export class RegisterNewPage implements OnInit {
     if (email) { // this stops weird stuff from happening when email is empty
       if (this.authService.validateEmail(email)) {
         // add good visual here
-        this.alertService.presentToast("valid email!", 500);
+        //this.alertService.presentToast("valid email!", 500);
       } else {
         // bad visual here
-        this.alertService.presentToast("invalid email!", 500);
+        //this.alertService.presentToast("invalid email!", 500);
       }
     }
   }
@@ -41,10 +41,10 @@ export class RegisterNewPage implements OnInit {
     if (password) { // this stops weird stuff from happening when email is empty
       if (this.authService.validatePassword(password)) {
         // add good visual here
-        this.alertService.presentToast("valid password!", 500);
+        //this.alertService.presentToast("valid password!", 500);
       } else {
         // bad visual here
-        this.alertService.presentToast("invalid password!", 500);
+        //this.alertService.presentToast("invalid password!", 500);
       }
     }
   }
@@ -54,10 +54,10 @@ export class RegisterNewPage implements OnInit {
     if (this.pass && confirm) {
       if (this.pass == confirm) {
         // add good visual here
-        this.alertService.presentToast("passwords match!  Yay!", 500);
+        //this.alertService.presentToast("passwords match!  Yay!", 500);
       } else {
         // add bad visual here
-        this.alertService.presentToast("oh no!  passwords don't match!!!!", 500);
+        //this.alertService.presentToast("oh no!  passwords don't match!!!!", 500);
       }
     }
   }
@@ -65,12 +65,14 @@ export class RegisterNewPage implements OnInit {
   registerNew(form: NgForm) {
   	  // call authService.register
 
-
-
-
-      if (true) {
+      this.authService.doRegister(form.value)
+      .then(
+      res => {
         this.goToWelcomeNew();
-      }
+      }, 
+      err => {
+        console.log(err);
+      });
   }
 
   goToWelcomeNew() {

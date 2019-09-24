@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginPage implements OnInit {
 
   constructor(
-    public navCtrl: NavController,
+  public navCtrl: NavController,
 	private authService: AuthService,
 	private alertService: AlertService,
 
@@ -34,30 +34,16 @@ export class LoginPage implements OnInit {
     this.navCtrl.navigateRoot('/home');
   }
 
-  login(form: NgForm) {
-  	  // call authService.login
+  login(form : NgForm){
 
-      // for now just using sheetsu
-
-      this.alertService.presentToast("Verifying login...");
-
-
-      let email: string = form.value.email;
-      let pass: string = form.value.password;
-      console.log(email + " " + pass);
-
-      this.http.request("GET", this.env.sheetsu_url + "/search?Username="+email+"&Password="+pass)
-      .subscribe(
-        success => {
-          console.log("found user/pass");
-          this.authService.setToken("dummy thicc");
-          this.navCtrl.navigateRoot('/home');
-        },
-        fail => {
-          console.log("nothing found");
-          this.alertService.presentToast("Incorrect login!");
-        }
-      );
+    this.authService.doLogin(form.value)
+    .then(
+      res => {
+        this.goToHome();
+      }, 
+      err => {
+        console.log(err);
+      });
   }
 
 }
