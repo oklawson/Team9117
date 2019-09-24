@@ -28,6 +28,10 @@ export class ResetEmailPage implements OnInit {
     {
       this.navCtrl.navigateRoot('/home').then(() => { this.alertService.presentToast("Email Updated Successfully!"); });
     }
+    else
+    {
+      this.alertService.presentToast("Something went wrong!");
+    }
   }
 
 }

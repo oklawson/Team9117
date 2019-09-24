@@ -25,20 +25,6 @@ export class FirebaseService {
     this.updateCurrentUserName("bbbbb");
   }
 
-  updateCurrentUserName(name) {
-    // check that authenticated user is signed in  
-    if (firebase.auth().currentUser) {
-      return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
-          name: name,
-        });
-    }
-    else
-    {
-      console.log("Not authenticated");
-      return null;
-    }
-  }
-
   updateCurrentUserEmail(email) {
     // check that authenticated user is signed in  
     if (firebase.auth().currentUser) {
@@ -49,6 +35,37 @@ export class FirebaseService {
         return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
             email: email,
           });
+        });
+    }
+    else
+    {
+      console.log("Not authenticated");
+      return null;
+    }
+  }
+
+  updateCurrentUserPassword(password) {
+    // check that authenticated user is signed in  
+    if (firebase.auth().currentUser) {
+      return firebase.auth().currentUser.updatePassword(password)
+      .then (() => {return true;})
+      .catch(function(error) {
+        console.log(error);
+        return null;
+      });
+    }
+    else
+    {
+      console.log("Not authenticated");
+      return null;
+    }
+  }
+
+  updateCurrentUserName(name) {
+    // check that authenticated user is signed in  
+    if (firebase.auth().currentUser) {
+      return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
+          name: name,
         });
     }
     else
