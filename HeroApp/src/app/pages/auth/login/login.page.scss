@@ -1,6 +1,6 @@
 ion-item {
-    --padding-bottom: 16px;
-    --padding-top: 16px;
+    --padding-bottom: 5px;
+    --padding-top: 5px;
     --padding-end: 32px;
     --color: #043289;
 }
@@ -9,11 +9,28 @@ ion-item {
   font-size: 3em;
   padding-top: 40px;
   color: white;
+  align: center;
+}
+
+.buttonPadding{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .button-div {
   padding-top: 20px;
   padding-bottom: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-message
+{
+  color: red;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 
