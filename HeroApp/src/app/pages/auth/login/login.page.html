@@ -1,4 +1,4 @@
-<ion-content class="login background">
+<!-- <ion-content class="login background">
   <form  #form="ngForm" (ngSubmit)="login(form)">
       <ion-grid>
         <ion-row color="primary" justify-content-center>
@@ -18,7 +18,6 @@
                 </ion-item>
                 <div class="button-div" text-center>
                   <ion-button size="med" type="submit" [disabled]="form.invalid" >Login</ion-button>
-                  <!-- register button isn't actually associated with the form it's in -->
                   <p (click)="goToRegister()">Register</p>
                 </div>
               </ion-card>
@@ -28,5 +27,110 @@
       </ion-grid>
     </form>
 
-  <!-- <div class="ion-text-center white"><p>Forgot Password?</p></div> -->
+  <div class="ion-text-center white"><p>Forgot Password?</p></div>
+</ion-content> -->
+
+
+
+
+
+<!-- <ion-buttons slot="start">
+   <ion-back-button defaultHref="login"></ion-back-button>
+ </ion-buttons>
+
+<ion-content class="background">
+    <form  #form="ngForm" (ngSubmit)="registerNew(form)">
+        <ion-grid>
+          <ion-row color="primary" justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+              <div text-center class="header">
+                <h3>Create your account</h3>
+              </div>
+              <ion-card>
+                <div padding>
+                  <ion-item>
+                    <ion-label position="floating">Full Name</ion-label>
+                    <ion-input  name="name" type="text" ngModel required></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input name="email" type="email" ngModel required (ngModelChange)="checkEmail($event)"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input name="password" type="password" ngModel required (ngModelChange)="checkPassword($event)"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label position="floating">Confirm Password</ion-label>
+                    <ion-input name="confirm" type="password" ngModel required (ngModelChange)="confirmPassword($event)"></ion-input>
+                  </ion-item>
+                </div>
+                <div class="button-div" text-center>
+                  <ion-button size="med" type="submit" [disabled]="form.invalid">Login</ion-button>
+                  <p (click)="goToRegister()">Register</p>
+                </div>
+              </ion-card>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+</ion-content> -->
+
+<ion-content padding class="login background">
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+          <div class="header" text-center>
+              <h1 class="title"><img class="title-image" src="assets/logo.svg" width="250" height="150" /></h1>
+          </div>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <ion-card>
+
+            <ion-item>
+              <ion-label position="floating" color="primary">Email</ion-label>
+              <ion-input type="text" formControlName="email"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <div class="error-message"
+                  *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+
+            <div formGroupName="matching_passwords">
+              <ion-item>
+                <ion-label position="floating" color="primary">Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.password">
+                  <div class="error-message"
+                    *ngIf="validations_form.get('matching_passwords').get('password').hasError(validation.type) && (validations_form.get('matching_passwords').get('password').dirty || validations_form.get('matching_passwords').get('password').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.matching_passwords">
+                <div class="error-message"
+                  *ngIf="validations_form.get('matching_passwords').hasError(validation.type) && (validations_form.get('matching_passwords').get('confirm_password').dirty || validations_form.get('matching_passwords').get('confirm_password').touched)">
+                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+            <div class="button-div">
+              <ion-button color="primary" size="med" class="submit-btn" type="submit" [disabled]="!validations_form.valid">Login</ion-button>
+              <p (click)="goToRegister()">Register</p>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
