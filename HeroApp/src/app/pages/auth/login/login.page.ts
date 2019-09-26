@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 import { EnvService } from 'src/app/services/env.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { NgForm } from '@angular/forms';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -17,11 +20,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginPage implements OnInit {
 
-  pass: string;
   validations_form: FormGroup;
-  matching_passwords_group: FormGroup;
-  country_phone_group: FormGroup;
-  genders: Array<string>;
 
   constructor(
   public navCtrl: NavController,
@@ -36,75 +35,31 @@ export class LoginPage implements OnInit {
 
 	ngOnInit() {
 
-    this.genders = [
-      "Male",
-      "Female"
-    ];
-
-    this.matching_passwords_group = new FormGroup({
-      password: new FormControl('', Validators.compose([
-        Validators.minLength(5),
-        Validators.required,
-        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
-      ])),
-      confirm_password: new FormControl('', Validators.required)
-    }, (formGroup: FormGroup) => {
-      return PasswordValidator.areEqual(formGroup);
-    });
-
     this.validations_form = this.formBuilder.group({
-      username: new FormControl('', Validators.compose([
-        UsernameValidator.validUsername,
-        Validators.maxLength(25),
-        Validators.minLength(5),
-        Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
-        Validators.required
-      ])),
-      name: new FormControl('', Validators.required),
-      lastname: new FormControl('', Validators.required),
       email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
-      matching_passwords: this.matching_passwords_group,
-      terms: new FormControl(true, Validators.pattern('true'))
+      password: new FormControl('', Validators.compose([
+        Validators.minLength(6),
+        Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
+      ]))
     });
 
 	}
 
 
   validation_messages = {
-    'username': [
-      { type: 'required', message: 'Username is required.' },
-      { type: 'minlength', message: 'Username must be at least 5 characters long.' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long.' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters.' },
-      { type: 'validUsername', message: 'Your username has already been taken.' }
-    ],
-    'name': [
-      { type: 'required', message: 'Name is required.' }
-    ],
-    'lastname': [
-      { type: 'required', message: 'Last name is required.' }
-    ],
     'email': [
       { type: 'required', message: 'Email is required.' },
       { type: 'pattern', message: 'Please enter a valid email.' }
     ],
     'password': [
       { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' },
-      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
-    ],
-    'confirm_password': [
-      { type: 'required', message: 'Confirm password is required.' }
-    ],
-    'matching_passwords': [
-      { type: 'areEqual', message: 'Password mismatch.' }
-    ],
-    'terms': [
-      { type: 'pattern', message: 'You must accept terms and conditions.' }
-    ],
+      { type: 'minlength', message: 'Password must be at least 6 characters long.' },
+      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
+    ]
   };
 
   onSubmit(values){

@@ -88,6 +88,9 @@ import { UsernameValidator } from 'src/app/validators/username.validator';
 import { PasswordValidator } from 'src/app/validators/password.validator';
 import { Router } from '@angular/router';
 
+import { NgForm } from '@angular/forms';
+
+
 @Component({
   selector: 'app-register-new',
   templateUrl: './register-new.page.html',
@@ -110,59 +113,6 @@ export class RegisterNewPage implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
-
-  checkEmail(email: string) {
-    if (email) { // this stops weird stuff from happening when email is empty
-      if (this.authService.validateEmail(email)) {
-        // add good visual here
-        //this.alertService.presentToast("valid email!", 500);
-      } else {
-        // bad visual here
-        //this.alertService.presentToast("invalid email!", 500);
-      }
-    }
-  }
-
-  checkPassword(password: string) {
-    // store the password to check against the confirm field
-    this.pass = password;
-
-    if (password) { // this stops weird stuff from happening when email is empty
-      if (this.authService.validatePassword(password)) {
-        // add good visual here
-        //this.alertService.presentToast("valid password!", 500);
-      } else {
-        // bad visual here
-        //this.alertService.presentToast("invalid password!", 500);
-      }
-    }
-  }
-
-  confirmPassword(confirm: string) {
-
-    if (this.pass && confirm) {
-      if (this.pass == confirm) {
-        // add good visual here
-        //this.alertService.presentToast("passwords match!  Yay!", 500);
-      } else {
-        // add bad visual here
-        //this.alertService.presentToast("oh no!  passwords don't match!!!!", 500);
-      }
-    }
-  }
-
-  registerNew(form: NgForm) {
-  	  // call authService.register
-
-      this.authService.doRegister(form.value)
-      .then(
-      res => {
-        this.goToWelcomeNew();
-      }, 
-      err => {
-        console.log(err);
-      });
 
     this.genders = [
       "Male",
@@ -232,6 +182,62 @@ export class RegisterNewPage implements OnInit {
       { type: 'pattern', message: 'You must accept terms and conditions.' }
     ],
   };
+
+  checkEmail(email: string) {
+    if (email) { // this stops weird stuff from happening when email is empty
+      if (this.authService.validateEmail(email)) {
+        // add good visual here
+        //this.alertService.presentToast("valid email!", 500);
+      } else {
+        // bad visual here
+        //this.alertService.presentToast("invalid email!", 500);
+      }
+    }
+  }
+
+  checkPassword(password: string) {
+    // store the password to check against the confirm field
+    this.pass = password;
+
+    if (password) { // this stops weird stuff from happening when email is empty
+      if (this.authService.validatePassword(password)) {
+        // add good visual here
+        //this.alertService.presentToast("valid password!", 500);
+      } else {
+        // bad visual here
+        //this.alertService.presentToast("invalid password!", 500);
+      }
+    }
+  }
+
+  confirmPassword(confirm: string) {
+
+    if (this.pass && confirm) {
+      if (this.pass == confirm) {
+        // add good visual here
+        //this.alertService.presentToast("passwords match!  Yay!", 500);
+      } else {
+        // add bad visual here
+        //this.alertService.presentToast("oh no!  passwords don't match!!!!", 500);
+      }
+    }
+  }
+
+  registerNew(form: NgForm) {
+  	// call authService.register
+
+    this.authService.doRegister(form.value)
+    .then(
+    res => {
+      this.router.navigate(["/user"]);
+
+    }, 
+    err => {
+      console.log(err);
+    });
+  }
+
+    
 
   onSubmit(values){
     console.log(values);
