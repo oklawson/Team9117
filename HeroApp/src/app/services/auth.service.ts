@@ -27,16 +27,20 @@ export class AuthService {
   ) {}
 
   doRegister(value){
-   return new Promise<any>((resolve, reject) => {
-     firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-     .then(
-       res => { resolve(res); },
-       err => reject(err))
-   }).then(
-     () => {
-       this.firebaseService.writeUserData(firebase.auth().currentUser.uid, value.name, value.email, null);
-     }
-   )
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+      .then(
+        res => { resolve(res); },
+        err => reject(err))
+    }).then(
+      () => {
+        if (value.cardnumber) {
+          this.firebaseService.writeUserData(firebase.auth().currentUser.uid, value.firstname, value.lastname, value.email, value.cardnumber);
+        } else {
+          this.firebaseService.writeUserData(firebase.auth().currentUser.uid, value.firstname, value.lastname, value.email, null);
+        }
+      }
+    )
   }
 
   doLogin(value){

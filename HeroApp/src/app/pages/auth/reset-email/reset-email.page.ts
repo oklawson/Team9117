@@ -63,44 +63,44 @@ export class ResetEmailPage implements OnInit {
     });
     }
 
-validation_messages = {
-  'username': [
-    { type: 'required', message: 'Username is required.' },
-    { type: 'minlength', message: 'Username must be at least 5 characters long.' },
-    { type: 'maxlength', message: 'Username cannot be more than 25 characters long.' },
-    { type: 'pattern', message: 'Your username must contain only numbers and letters.' },
-    { type: 'validUsername', message: 'Your username has already been taken.' }
-  ],
-  'name': [
-    { type: 'required', message: 'Name is required.' }
-  ],
-  'lastname': [
-    { type: 'required', message: 'Last name is required.' }
-  ],
-  'email': [
-    { type: 'required', message: 'Email is required.' },
-    { type: 'pattern', message: 'Please enter a valid email.' }
-  ],
-  'password': [
-    { type: 'required', message: 'Password is required.' },
-    { type: 'minlength', message: 'Password must be at least 5 characters long.' },
-    { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
-  ],
-  'confirm_password': [
-    { type: 'required', message: 'Confirm password is required.' }
-  ],
-  'matching_passwords': [
-    { type: 'areEqual', message: 'Password mismatch.' }
-  ],
-  'terms': [
-    { type: 'pattern', message: 'You must accept terms and conditions.' }
-  ],
-};
+  validation_messages = {
+    'username': [
+      { type: 'required', message: 'Username is required.' },
+      { type: 'minlength', message: 'Username must be at least 5 characters long.' },
+      { type: 'maxlength', message: 'Username cannot be more than 25 characters long.' },
+      { type: 'pattern', message: 'Your username must contain only numbers and letters.' },
+      { type: 'validUsername', message: 'Your username has already been taken.' }
+    ],
+    'name': [
+      { type: 'required', message: 'Name is required.' }
+    ],
+    'lastname': [
+      { type: 'required', message: 'Last name is required.' }
+    ],
+    'email': [
+      { type: 'required', message: 'Email is required.' },
+      { type: 'pattern', message: 'Please enter a valid email.' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required.' },
+      { type: 'minlength', message: 'Password must be at least 5 characters long.' },
+      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
+    ],
+    'confirm_password': [
+      { type: 'required', message: 'Confirm password is required.' }
+    ],
+    'matching_passwords': [
+      { type: 'areEqual', message: 'Password mismatch.' }
+    ],
+    'terms': [
+      { type: 'pattern', message: 'You must accept terms and conditions.' }
+    ],
+  };
 
-onSubmit(values){
-  console.log(values);
-  this.router.navigate(["/user"]);
-}
+  onSubmit(values){
+    console.log(values);
+    this.router.navigate(["/user"]);
+  }
 
   updateEmail(form: NgForm) {
     if (this.firebaseService.updateCurrentUserEmail(form.value.email))

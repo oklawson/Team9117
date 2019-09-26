@@ -1,47 +1,5 @@
-<!-- <ion-buttons slot="start">
-   <ion-back-button defaultHref="login"></ion-back-button>
- </ion-buttons>
-
-<ion-content class="background">
-    <form  #form="ngForm" (ngSubmit)="registerNew(form)">
-        <ion-grid>
-          <ion-row color="primary" justify-content-center>
-            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-              <div text-center class="header">
-                <h3>Create your account</h3>
-              </div>
-              <ion-card>
-                <div padding>
-                  <ion-item>
-                    <ion-label position="floating">Full Name</ion-label>
-                    <ion-input  name="name" type="text" ngModel required></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-label position="floating">Email</ion-label>
-                    <ion-input name="email" type="email" ngModel required (ngModelChange)="checkEmail($event)"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                    <ion-label position="floating">Password</ion-label>
-                    <ion-input name="password" type="password" ngModel required (ngModelChange)="checkPassword($event)"></ion-input>
-                  </ion-item>
-                  <ion-item>
-                      <ion-label position="floating">Confirm Password</ion-label>
-                    <ion-input name="confirm" type="password" ngModel required (ngModelChange)="confirmPassword($event)"></ion-input>
-                  </ion-item>
-                </div>
-                <div class="button-div" text-center>
-                  <ion-button size="med" type="submit" [disabled]="form.invalid">Register</ion-button>
-                </div>
-              </ion-card>
-
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </form>
-</ion-content> -->
-
 <ion-content padding class="form-content background">
-  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+  <form [formGroup]="validations_form" (ngSubmit)="registerNew(validations_form)">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -52,11 +10,11 @@
           <ion-card>
             <ion-item>
               <ion-label position="floating" color="primary">First Name</ion-label>
-              <ion-input type="text" formControlName="name"></ion-input>
+              <ion-input type="text" formControlName="firstname"></ion-input>
             </ion-item>
             <div class="validation-errors">
               <ng-container *ngFor="let validation of validation_messages.name">
-                <div class="error-message" *ngIf="validations_form.get('name').hasError(validation.type) && (validations_form.get('name').dirty || validations_form.get('name').touched)">
+                <div class="error-message" *ngIf="validations_form.get('firstname').hasError(validation.type) && (validations_form.get('firstname').dirty || validations_form.get('firstname').touched)">
                   <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
                 </div>
               </ng-container>
@@ -136,6 +94,10 @@
                   <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
                 </div>
               </ng-container>
+            </div>
+
+            <div class="button-div">
+              <ion-button color="primary" size="med" class="submit-btn" type="submit" [disabled]="!validations_form.valid">Register</ion-button>
             </div>
 
           </ion-card>

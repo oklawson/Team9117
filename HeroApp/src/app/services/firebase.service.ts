@@ -22,7 +22,6 @@ export class FirebaseService {
   ){
     console.log("firebase");
     console.log(firebase);
-    this.updateCurrentUserName("bbbbb");
   }
 
   updateCurrentUserEmail(email) {
@@ -61,11 +60,12 @@ export class FirebaseService {
     }
   }
 
-  updateCurrentUserName(name) {
+  updateCurrentUserName(first, last) {
     // check that authenticated user is signed in  
     if (firebase.auth().currentUser) {
       return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
-          name: name,
+          firstName: first,
+          lastName: last
         });
     }
     else
@@ -89,20 +89,22 @@ export class FirebaseService {
     }
   }
 
-  updateCurrentUserData(name, email, cardNumber) {
+  updateCurrentUserData(first, last, email, cardNumber) {
     // check that authenticated user is signed in  
     if (firebase.auth().currentUser) {
       if (cardNumber != null) {
         return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
           //userId: firebase.auth().currentUser.uid,
-          name: name,
+          firstName: first,
+          lastName: last,
           email: email,
           card: cardNumber
         });
       } else {
           return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
           //userId: firebase.auth().currentUser.uid,
-          name: name,
+          firstName: first,
+          lastName: last,
           email: email
         });
       }
@@ -114,20 +116,22 @@ export class FirebaseService {
     }
   }
 
-  writeUserData(userId, name, email, cardNumber) {
+  writeUserData(userId, first, last, email, cardNumber) {
     // check that authenticated user is signed in  
     if (firebase.auth().currentUser) {
       if (cardNumber != null) {
         return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).set({
           userId: userId,
-          name: name,
+          firstName: first,
+          lastName: last,
           email: email,
           card: cardNumber
         });
       } else {
           return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).set({
           userId: userId,
-          name: name,
+          firstName: first,
+          lastName: last,
           email: email
         });
       }
