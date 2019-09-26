@@ -1,40 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { Validators, FormBuilder, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { UsernameValidator } from 'src/app/validators/username.validator';
-import { PasswordValidator } from 'src/app/validators/password.validator';
-import { AuthService } from 'src/app/services/auth.service';
-import { AlertService } from 'src/app/services/alert.service';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UsernameValidator } from '../validators/username.validator';
+import { PasswordValidator } from '../validators/password.validator';
 import { Router } from '@angular/router';
 
-import { EnvService } from 'src/app/services/env.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-validation-test',
+  templateUrl: './validation-test.page.html',
+  styleUrls: ['./validation-test.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class ValidationTestPage implements OnInit {
 
-  pass: string;
   validations_form: FormGroup;
   matching_passwords_group: FormGroup;
-  country_phone_group: FormGroup;
+  // country_phone_group: FormGroup;
+
   genders: Array<string>;
 
   constructor(
-  public navCtrl: NavController,
-	private authService: AuthService,
-	private alertService: AlertService,
-  public formBuilder: FormBuilder,
-  private router: Router,
-
-  private env: EnvService,
-  private http: HttpClient
+    public formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
-	ngOnInit() {
+  ngOnInit() {
 
     this.genders = [
       "Male",
@@ -66,12 +54,11 @@ export class LoginPage implements OnInit {
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
+      gender: new FormControl(this.genders[0], Validators.required),
       matching_passwords: this.matching_passwords_group,
       terms: new FormControl(true, Validators.pattern('true'))
     });
-
-	}
-
+  }
 
   validation_messages = {
     'username': [
@@ -89,8 +76,12 @@ export class LoginPage implements OnInit {
     ],
     'email': [
       { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Please enter a valid email.' }
+      { type: 'pattern', message: 'Please wnter a valid email.' }
     ],
+    // 'phone': [
+    //   { type: 'required', message: 'Phone is required.' },
+    //   { type: 'validCountryPhone', message: 'The phone is incorrect for the selected country.' }
+    // ],
     'password': [
       { type: 'required', message: 'Password is required.' },
       { type: 'minlength', message: 'Password must be at least 5 characters long.' },
@@ -111,29 +102,5 @@ export class LoginPage implements OnInit {
     console.log(values);
     this.router.navigate(["/user"]);
   }
-
-  goToRegister(){
-    this.navCtrl.navigateForward('/register');
-  }
-
-  goToHome(){
-    this.navCtrl.navigateRoot('/home');
-  }
-
-  login(form : NgForm){
-
-    this.authService.doLogin(form.value)
-    .then(
-      res => {
-        console.log(form.value.email + " logged in successfully");
-        this.goToHome();
-      }, 
-      err => {
-        console.log(err);
-        // TODO: maybe search for the email address and tell user whether or not that is correct
-        this.alertService.presentToast("Username/Password combination does not exist");
-      });
-  }
-
 
 }

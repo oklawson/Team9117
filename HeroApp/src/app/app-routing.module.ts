@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'welcome-new', loadChildren: './pages/welcome-new/welcome-new.module#WelcomeNewPageModule' },
   { path: 'reset-password', loadChildren: './pages/auth/reset-password/reset-password.module#ResetPasswordPageModule' },
   { path: 'reset-email', loadChildren: './pages/auth/reset-email/reset-email.module#ResetEmailPageModule' },
+  { path: 'validation-test', loadChildren: './validation-test/validation-test.module#ValidationTestPageModule' },
 
 
 ];
