@@ -5,10 +5,6 @@ import { UsernameValidator } from 'src/app/validators/username.validator';
 import { PasswordValidator } from 'src/app/validators/password.validator';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { Router } from '@angular/router';
-
-import { EnvService } from 'src/app/services/env.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { NgForm } from '@angular/forms';
 
@@ -27,10 +23,6 @@ export class LoginPage implements OnInit {
 	private authService: AuthService,
 	private alertService: AlertService,
   public formBuilder: FormBuilder,
-  private router: Router,
-
-  private env: EnvService,
-  private http: HttpClient
   ) { }
 
 	ngOnInit() {
@@ -61,11 +53,6 @@ export class LoginPage implements OnInit {
       { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
     ]
   };
-
-  onSubmit(values){
-    console.log(values);
-    this.router.navigate(["/user"]);
-  }
 
   goToRegister(){
     this.navCtrl.navigateForward('/register');

@@ -5,7 +5,6 @@ import { AlertService } from 'src/app/services/alert.service';
 import { Validators, FormBuilder, FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { UsernameValidator } from 'src/app/validators/username.validator';
 import { PasswordValidator } from 'src/app/validators/password.validator';
-import { Router } from '@angular/router';
 
 import { NgForm } from '@angular/forms';
 
@@ -17,26 +16,17 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterNewPage implements OnInit {
 
-  pass: string;
   validations_form: FormGroup;
   matching_passwords_group: FormGroup;
-  country_phone_group: FormGroup;
-  genders: Array<string>;
 
   constructor(
     public navCtrl: NavController,
     private authService: AuthService,
     private alertService: AlertService,
-    public formBuilder: FormBuilder,
-    private router: Router
+    public formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
-
-    this.genders = [
-      "Male",
-      "Female"
-    ];
 
     this.matching_passwords_group = new FormGroup({
       password: new FormControl('', Validators.compose([
@@ -100,13 +90,6 @@ export class RegisterNewPage implements OnInit {
     err => {
       console.log(err);
     });
-  }
-
-    
-
-  onSubmit(values){
-    console.log(values);
-    this.router.navigate(["/user"]);
   }
 
 }

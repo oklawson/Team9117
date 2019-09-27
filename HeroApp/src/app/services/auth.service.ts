@@ -17,6 +17,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   isLoggedIn = false;
   token:any;
+  lookupValue: any;
 
   constructor(
     private http: HttpClient,
@@ -24,9 +25,52 @@ export class AuthService {
     private env: EnvService,
     private firebaseService: FirebaseService,
 		public afAuth: AngularFireAuth
-  ) {}
+  ) {
 
-  doRegister(value){
+  }
+
+  waitFor(condition, callback) {
+      if(!condition()) {
+          console.log('waiting');
+          window.setTimeout(waitFor.bind(null, condition, callback), 100); /* this checks the flag every 100 milliseconds*/
+      } else {
+          console.log('done');
+          callback();
+      }
+  }
+
+  doLookupExisting(value) {
+    this.firebaseService.lookupExistingCardOwner(value.cardnumber);
+    this.lookupValue = value;
+
+
+
+    this.waitFor(this.firebaseService.getExistingCardData() != null, () => this.doLookupExistingPart2(this.firebaseService.getExistingCardData()));
+    
+  }
+
+  doLookupExistingPart2(data) {
+    console.log("made it");
+    let value = this.lookupValue;
+
+    if (data != null && value.email == data.email)
+    {
+      // construct their account info with database data
+      value.firstname = data.firstname;
+      value.lastname = data.lastname;
+      value.email = data.email;
+      // they just decided on their password
+      // card number had to be right for lookup to pass
+      return this.doRegister(value);
+    }
+    else
+    {
+      throw new Error("Couldn't find an account matching this card number");
+    }
+  
+  }
+
+  doRegister(value) {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
       .then(
