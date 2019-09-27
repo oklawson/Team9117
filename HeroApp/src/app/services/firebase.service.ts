@@ -47,6 +47,7 @@ export class FirebaseService {
 
   updateCurrentUserPassword(password) {
     // check that authenticated user is signed in  
+    console.log(password);
     if (firebase.auth().currentUser) {
       return firebase.auth().currentUser.updatePassword(password)
       .then (() => {return true;})
