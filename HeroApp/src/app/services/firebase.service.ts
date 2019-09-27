@@ -12,8 +12,6 @@ export interface User { userId: string; name: string; email: string; card: strin
 export class FirebaseService {
 
   private snapshotChangesSubscription: any;
-
-  private existingCardOwnerData: any;
   
   private currentUser: any;
 
@@ -24,21 +22,9 @@ export class FirebaseService {
   }
 
   lookupExistingCardOwner(cardnumber) {
-    console.log("step 1");
-    let data = null;
-
-    var docRef = this.afs.collection("existing card owners").doc(cardnumber);
-    docRef.get().subscribe(
-      x => { console.log("step2"); this.existingCardOwnerData = x; },
-      err => { console.error(err); }
-    );
-
+    
   }
 
-  getExistingCardData() {
-    console.log("getting card data");
-    return this.existingCardOwnerData;
-  }
 
   updateCurrentUserEmail(email) {
     // check that authenticated user is signed in  

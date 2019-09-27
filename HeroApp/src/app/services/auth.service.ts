@@ -8,8 +8,12 @@ import { EnvService } from './env.service';
 import * as firebase from 'firebase/app';
 import { FirebaseService } from './firebase.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-// make user to fit REST authentication
-//import { User } from '../models/user';
+
+import { AlertService } from 'src/app/services/alert.service';
+
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,53 +28,18 @@ export class AuthService {
     private storage: NativeStorage,
     private env: EnvService,
     private firebaseService: FirebaseService,
-		public afAuth: AngularFireAuth
+		public afAuth: AngularFireAuth,
+    private alertService: AlertService,
   ) {
 
   }
 
-  waitFor(condition, callback) {
-      if(!condition()) {
-          console.log('waiting');
-          window.setTimeout(waitFor.bind(null, condition, callback), 100); /* this checks the flag every 100 milliseconds*/
-      } else {
-          console.log('done');
-          callback();
-      }
-  }
-
   doLookupExisting(value) {
-    this.firebaseService.lookupExistingCardOwner(value.cardnumber);
-    this.lookupValue = value;
-
-
-
-    this.waitFor(this.firebaseService.getExistingCardData() != null, () => this.doLookupExistingPart2(this.firebaseService.getExistingCardData()));
-    
-  }
-
-  doLookupExistingPart2(data) {
-    console.log("made it");
-    let value = this.lookupValue;
-
-    if (data != null && value.email == data.email)
-    {
-      // construct their account info with database data
-      value.firstname = data.firstname;
-      value.lastname = data.lastname;
-      value.email = data.email;
-      // they just decided on their password
-      // card number had to be right for lookup to pass
-      return this.doRegister(value);
-    }
-    else
-    {
-      throw new Error("Couldn't find an account matching this card number");
-    }
-  
+ 
   }
 
   doRegister(value) {
+    console.log("please");
     return new Promise<any>((resolve, reject) => {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
       .then(

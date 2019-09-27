@@ -78,18 +78,9 @@ export class RegisterReturningPage implements OnInit {
     // extract the actual password  
     form.value.password = form.value.matching_passwords.password;
 
+    // not implemented
     this.authService.doLookupExisting(form.value);
-    //.then(
-    //() => {
-    //  if (typeof(res) == "string") {
-    //    this.alertService.presentToast(res);
-    //  } else {
-    //    this.navCtrl.navigateRoot('/home');
-    //  }
-    //}, 
-    //err => {
-    //  console.log(err);
-    //});
+
   }
 
 }
