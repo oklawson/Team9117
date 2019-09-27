@@ -30,6 +30,5 @@ export class AlertService {
       toast.present();
       this.toastInstance = toast;
     //}
-    console.log(this.toastController);
   }
 }
