@@ -3,8 +3,17 @@ import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { EnvService } from './env.service';
-// make user to fit REST authentication
-//import { User } from '../models/user';
+
+
+import * as firebase from 'firebase/app';
+import { FirebaseService } from './firebase.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+
+import { AlertService } from 'src/app/services/alert.service';
+
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +21,65 @@ import { EnvService } from './env.service';
 export class AuthService {
   isLoggedIn = false;
   token:any;
+  lookupValue: any;
 
   constructor(
     private http: HttpClient,
     private storage: NativeStorage,
     private env: EnvService,
-  ) { }
+    private firebaseService: FirebaseService,
+		public afAuth: AngularFireAuth,
+    private alertService: AlertService,
+  ) {
+
+  }
+
+  doLookupExisting(value) {
+ 
+  }
+
+  doRegister(value) {
+    console.log("please");
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+      .then(
+        res => { resolve(res); },
+        err => reject(err))
+    }).then(
+      () => {
+        if (value.cardnumber) {
+          this.firebaseService.writeUserData(firebase.auth().currentUser.uid, value.firstname, value.lastname, value.email, value.cardnumber);
+        } else {
+          this.firebaseService.writeUserData(firebase.auth().currentUser.uid, value.firstname, value.lastname, value.email, null);
+        }
+      }
+    )
+  }
+
+  doLogin(value){
+
+  return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(res => {
+      return new Promise<any>((resolve, reject) => {
+        firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+        .then(
+          res => { resolve(res); },
+          err => reject(err))
+      });
+    });
+  }
+
+	doLogout(){
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.signOut()
+      .then(() => {
+        this.firebaseService.unsubscribeOnLogOut();
+        resolve();
+      }).catch((error) => {
+        reject();
+      });
+    })
+  }
 
   // email and password authentication methods
   validateEmail(email: string): boolean {
@@ -25,15 +87,11 @@ export class AuthService {
     let isValid: boolean = true;
     // todo: actually fill this out
 
-
-
-
     if (isValid) {
-      console.log(email + " is a valid email");
+      //console.log(email + " is a valid email");
       return true;
     }
     return false;
-
   }
 
   validatePassword(password: string): boolean {
@@ -41,50 +99,11 @@ export class AuthService {
     let isValid: boolean = true;
     // todo: actually fill this out
 
-
-
-
     if (isValid) {
-      console.log(password + " is a valid password");
+      //console.log(password + " is a valid password");
       return true;
     }
     return false;
-
   }
 
-
-
-  // fill with login, register, logout auth methods
-
-  logout() {
-    this.clearToken();
-  }
-
-  clearToken() {
-    this.token = null;
-    this.isLoggedIn=false;
-  }
-
-  setToken(value: string) {
-    this.token = value;
-    this.isLoggedIn=true;
-  }
-
-  getToken() {
-  	return this.storage.getItem('token').then(
-	data => {
-		this.token = data;
-
-		if (this.token != null) {
-		this.isLoggedIn=true;
-		} else {
-		this.isLoggedIn=false;
-		}
-	},
-	error => {
-		this.token = null;
-		this.isLoggedIn=false;
-	}
-	);
-  }
 }

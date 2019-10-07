@@ -15,8 +15,15 @@ export class ManageAccountPage {
   ) {}
 
     logout() {
-      this.authService.logout();
-      this.goToLogin();
+      this.authService.doLogout().then(
+      res => {
+        console.log("logged out successfully");
+        this.goToLogin();
+      }, 
+      err => {
+        console.log(err);
+        this.goToLogin();
+      });
     }
 
     goToLogin() {

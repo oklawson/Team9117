@@ -29,14 +29,14 @@
         </ion-row>
         <ion-row id="bottom-align">
           <div id="info">
-            <b>Date Joined:</b> March 4th, 2017<br/>
+            <b>Member Since:</b> March 4th, 2017<br/>
             <b>Auto-Renew:</b> Activated<br/>
             <b>Membership Status:</b> Paid Member
           </div>
           <div id="buttons">
-            <ion-button expand="block"><ion-icon name="add-circle-outline"></ion-icon>Add Payment Method</ion-button>
             <ion-button expand="block"><ion-icon name="settings"></ion-icon>Edit Payment Method</ion-button>
           </div>
+          <div id="unsub" (click)="goToRegister()">Unsubscribe</div>
         </ion-row>
     </ion-grid>
 </ion-content>
