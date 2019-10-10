@@ -21,6 +21,18 @@ export class FirebaseService {
   ){
   }
 
+  getCurrentUser()
+  {
+    if (firebase.auth().currentUser)
+    {
+      return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).get();
+    }
+    else
+    {
+      console.log("not authenticated");
+    }
+  }
+
   lookupExistingCardOwner(cardnumber) {
     
   }
