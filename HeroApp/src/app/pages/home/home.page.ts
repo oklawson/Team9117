@@ -14,8 +14,8 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private firebaseService: FirebaseService,
-  )
+    private firebaseService: FirebaseService,  
+  ) 
   {
     this.firebaseService.getCurrentUser().subscribe(
     (data) => {
