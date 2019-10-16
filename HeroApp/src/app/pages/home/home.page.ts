@@ -46,8 +46,8 @@ export class HomePage {
     this.navCtrl.navigateForward('/rewards')
   }
 
-  goToDiscounts() {
-    this.navCtrl.navigateForward('/discounts')
+  goToBrowse() {
+    this.navCtrl.navigateForward('/browse')
   }
 
   goToManageAccount() {

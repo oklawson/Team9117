@@ -1,4 +1,22 @@
+.search {
+  max-width: 600px;
+}
+
 .browseCard {
   height: 15%;
   margin: 7px 16px;
+  max-width: 600px;
+}
+
+.dlImage {
+  position: absolute;
+  float: left;
+  width: 27%;
+  height: 100%;
+  --color: green;
+}
+
+.blContent {
+  padding-left: 30%;
+  padding-top: 5px;
 }
