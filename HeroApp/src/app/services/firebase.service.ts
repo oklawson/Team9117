@@ -12,7 +12,7 @@ export interface User { userId: string; name: string; email: string; card: strin
 export class FirebaseService {
 
   private snapshotChangesSubscription: any;
-  
+
   private currentUser: any;
 
   constructor(
@@ -21,13 +21,25 @@ export class FirebaseService {
   ){
   }
 
+  getCurrentUser()
+  {
+    if (firebase.auth().currentUser)
+    {
+      return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).get();
+    }
+    else
+    {
+      console.log("not authenticated");
+    }
+  }
+
   lookupExistingCardOwner(cardnumber) {
-    
+
   }
 
 
   updateCurrentUserEmail(email) {
-    // check that authenticated user is signed in  
+    // check that authenticated user is signed in
     if (firebase.auth().currentUser) {
       // first update authenticated email address
       return firebase.auth().currentUser.updateEmail(email)
@@ -46,7 +58,7 @@ export class FirebaseService {
   }
 
   updateCurrentUserPassword(password) {
-    // check that authenticated user is signed in  
+    // check that authenticated user is signed in
     console.log(password);
     if (firebase.auth().currentUser) {
       return firebase.auth().currentUser.updatePassword(password)
@@ -64,7 +76,7 @@ export class FirebaseService {
   }
 
   updateCurrentUserName(first, last) {
-    // check that authenticated user is signed in  
+    // check that authenticated user is signed in
     if (firebase.auth().currentUser) {
       return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
           firstName: first,
@@ -79,7 +91,7 @@ export class FirebaseService {
   }
 
   updateCurrentUserCardNumber(cardNumber) {
-    // check that authenticated user is signed in  
+    // check that authenticated user is signed in
     if (firebase.auth().currentUser) {
       return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
           card: cardNumber,
@@ -93,7 +105,7 @@ export class FirebaseService {
   }
 
   updateCurrentUserData(first, last, email, cardNumber) {
-    // check that authenticated user is signed in  
+    // check that authenticated user is signed in
     if (firebase.auth().currentUser) {
       if (cardNumber != null) {
         return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).update({
@@ -120,7 +132,7 @@ export class FirebaseService {
   }
 
   writeUserData(userId, first, last, email, cardNumber) {
-    // check that authenticated user is signed in  
+    // check that authenticated user is signed in
     if (firebase.auth().currentUser) {
       if (cardNumber != null) {
         return this.afs.collection('users/').doc(firebase.auth().currentUser.uid).set({

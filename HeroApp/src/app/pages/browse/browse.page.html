@@ -1,58 +1,94 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Browse</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar animated debounce="500"></ion-searchbar>
+  <ion-searchbar animated class="search"></ion-searchbar>
 
-  <ion-card class="browseCard">
-    <ion-card-title>Restaurant Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+  <ion-card class="browseCard" *ngFor="let card of cards">
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>{{card.title}}</ion-card-title>
+      <ion-card-subtitle>{{card.subtitle}}</ion-card-subtitle>
+      {{card.description}}
+    </div>
   </ion-card>
 
   <ion-card class="browseCard">
-    <ion-card-title>Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
   </ion-card>
 
   <ion-card class="browseCard">
-    <ion-card-title>Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
   </ion-card>
 
   <ion-card class="browseCard">
-    <ion-card-title>Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
   </ion-card>
 
   <ion-card class="browseCard">
-    <ion-card-title>Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
   </ion-card>
 
   <ion-card class="browseCard">
-    <ion-card-title>Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
   </ion-card>
 
   <ion-card class="browseCard">
-    <ion-card-title>Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
   </ion-card>
 
   <ion-card class="browseCard">
-    <ion-card-title>Title</ion-card-title>
-    <ion-card-subtitle>Header</ion-card-subtitle>
-    Hello
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
+  </ion-card>
+
+  <ion-card class="browseCard">
+    <img src="./assets/DLImage.jpg" class="dlImage">
+    <div class="blContent">
+      <ion-card-title>Restaurant Title</ion-card-title>
+      <ion-card-subtitle>Header</ion-card-subtitle>
+      Regular Text
+    </div>
   </ion-card>
 
 </ion-content>
