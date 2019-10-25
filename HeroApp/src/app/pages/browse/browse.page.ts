@@ -38,7 +38,7 @@ export class BrowsePage implements OnInit {
           {
             title: d.data().title,
             subtitle: d.data().subtitle,
-            description: d.data().subscription,
+            description: d.data().description,
           }
         );
 
