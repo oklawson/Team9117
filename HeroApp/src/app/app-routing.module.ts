@@ -20,6 +20,8 @@ const routes: Routes = [
   { path: 'reset-email', loadChildren: './pages/auth/reset-email/reset-email.module#ResetEmailPageModule' },
   { path: 'validation-test', loadChildren: './validation-test/validation-test.module#ValidationTestPageModule' },
   { path: 'browse', loadChildren: './pages/browse/browse.module#BrowsePageModule' },
+  { path: 'discount-location', loadChildren: './pages/discount-location/discount-location.module#DiscountLocationPageModule' },
+
 
 
 
