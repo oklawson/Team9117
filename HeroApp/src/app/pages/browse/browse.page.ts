@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { PopoverComponent } from '../../popover/popover.component';
 
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { NavController } from '@ionic/angular';
@@ -22,12 +24,13 @@ export class BrowsePage implements OnInit {
       description: "Description 2",
     }
   ];
-
+  
   constructor(
     public navCtrl: NavController,
-    private firebaseService: FirebaseService,  
-  ) 
-  { 
+    private firebaseService: FirebaseService,
+    public popoverController: PopoverController
+  )
+  {
     this.firebaseService.getLocationListData().subscribe(
     (data) => {
       data.forEach(
@@ -44,6 +47,16 @@ export class BrowsePage implements OnInit {
 
       });
     });
+  }
+
+  async presentPopover(ev: any) {
+    console.log(ev);
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 
   ngOnInit() {
