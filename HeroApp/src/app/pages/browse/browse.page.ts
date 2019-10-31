@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.page.html',
@@ -23,7 +26,26 @@ export class BrowsePage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
-  ) { }
+    private firebaseService: FirebaseService,  
+  ) 
+  { 
+    this.firebaseService.getLocationListData().subscribe(
+    (data) => {
+      data.forEach(
+      (d) => {
+        console.log(d.data());
+
+        this.cards.push(
+          {
+            title: d.data().title,
+            subtitle: d.data().subtitle,
+            description: d.data().description,
+          }
+        );
+
+      });
+    });
+  }
 
   ngOnInit() {
   }

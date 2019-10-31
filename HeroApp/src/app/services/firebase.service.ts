@@ -21,6 +21,11 @@ export class FirebaseService {
   ){
   }
 
+  getLocationListData()
+  {
+    return this.afs.collection('locations/').get();
+  }
+
   getCurrentUser()
   {
     if (firebase.auth().currentUser)
