@@ -8,7 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar animated class="search"></ion-searchbar>
+  <div id="searchbar">
+    <ion-searchbar animated class="search"></ion-searchbar>
+    <ion-icon (click)="presentPopover($event)" name="options" size="large"></ion-icon>
+    <ion-popover-controller></ion-popover-controller>
+  </div>
 
   <ion-card class="browseCard" *ngFor="let card of cards">
     <img src="./assets/DLImage.jpg" class="dlImage">
