@@ -10,7 +10,7 @@
 <ion-content>
   <ion-searchbar animated class="search"></ion-searchbar>
 
-  <ion-card class="browseCard" *ngFor="let card of cards">
+  <ion-card class="browseCard" (click)="goToDiscountLocation()" *ngFor="let card of cards">
     <img src="./assets/DLImage.jpg" class="dlImage">
     <div class="blContent">
       <ion-card-title>{{card.title}}</ion-card-title>

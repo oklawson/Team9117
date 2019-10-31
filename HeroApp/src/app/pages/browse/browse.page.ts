@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-browse',
@@ -20,9 +21,15 @@ export class BrowsePage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    public navCtrl: NavController,
+  ) { }
 
   ngOnInit() {
+  }
+
+  goToDiscountLocation() {
+    this.navCtrl.navigateForward('/discount-location')
   }
 
 
