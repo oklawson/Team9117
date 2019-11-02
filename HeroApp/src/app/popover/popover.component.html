@@ -1,16 +1,16 @@
 <ion-title>Filtering Options</ion-title>
 
   <ion-label>Sort by:</ion-label>
-  <ion-select>
+  <ion-select id="sort-by">
     <ion-select-option selected value="price-low-high">Price Low-High</ion-select-option>
-    <ion-select-option value="price-high-low">Price Low-High</ion-select-option>
+    <ion-select-option value="price-high-low">Price High-Low</ion-select-option>
     <ion-select-option value="most-rated">Most Rated</ion-select-option>
   </ion-select>
   <ion-label>Location Type:</ion-label>
-  <ion-select>
+  <ion-select id="location-type">
     <ion-select-option selected value="restaurant">Restaurant</ion-select-option>
     <ion-select-option value="entertainment">Entertainment</ion-select-option>
     <ion-select-option value="sporting">Sporting</ion-select-option>
   </ion-select>
 
-<ion-button (click)="this.popoverController.dismiss()">Apply</ion-button>
+<ion-button (click)="apply()">Apply</ion-button>

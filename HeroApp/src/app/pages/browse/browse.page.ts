@@ -24,7 +24,7 @@ export class BrowsePage implements OnInit {
       description: "Description 2",
     }
   ];
-  
+
   constructor(
     public navCtrl: NavController,
     private firebaseService: FirebaseService,
@@ -56,6 +56,15 @@ export class BrowsePage implements OnInit {
       event: ev,
       translucent: true
     });
+
+    popover.onDidDismiss().then((dataReturned) => {
+      console.log(dataReturned);
+      const locationType = dataReturned.data.locationType;
+      const sortBy = dataReturned.data.sortBy;
+
+      //TODO: implement filtering based on returned data
+    });
+
     return await popover.present();
   }
 
