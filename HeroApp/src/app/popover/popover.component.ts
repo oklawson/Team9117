@@ -23,16 +23,12 @@ export class PopoverComponent implements OnInit {
     this.page = this.navParams.get('data');
   }
 
-  wifiSetting() {
-    // code for setting wifi option in apps
-  }
-
-  logout() {
-	// code for logout
-  }
-
-  eventFromPopover() {
+  apply() {
     this.events.publish('fromPopoverEvent');
-    this.popoverController.dismiss();
+    const onClosedData = {
+      sortBy: document.querySelector('#sort-by').value,
+      locationType: document.querySelector('#location-type').value
+    };
+    this.popoverController.dismiss(onClosedData);
   }
 }
