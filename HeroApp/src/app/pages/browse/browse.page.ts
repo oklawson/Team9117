@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../../popover/popover.component';
 
+
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Nav } from 'src/app/services/nav.service';
 
@@ -72,6 +73,10 @@ export class BrowsePage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  goToDiscountLocation() {
+    this.navCtrl.navigateForward('/discount-location')
   }
 
 

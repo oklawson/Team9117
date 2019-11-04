@@ -14,7 +14,7 @@
     <ion-popover-controller></ion-popover-controller>
   </div>
 
-  <ion-card class="browseCard" *ngFor="let card of cards">
+  <ion-card class="browseCard" (click)="goToDiscountLocation()" *ngFor="let card of cards">
     <img src="./assets/DLImage.jpg" class="dlImage">
     <div class="blContent">
       <ion-card-title>{{card.title}}</ion-card-title>
