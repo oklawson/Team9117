@@ -15,15 +15,13 @@ export class BrowsePage implements OnInit {
 
   cards = [
     {
-      title: "Title 1",
-      subtitle: "Subtitle 1",
-      description: "Description 1",
+      title: "Title",
+      subtitle: "Subtitle",
+      description: "Description",
+      rating: "Rating",
+      address: "Address",
+      hours: "Hours",
     },
-    {
-      title: "Title 2",
-      subtitle: "Subtitle 2",
-      description: "Description 2",
-    }
   ];
 
   constructor(
@@ -32,15 +30,22 @@ export class BrowsePage implements OnInit {
     public popoverController: PopoverController
   )
   {
+    console.log("Browse page constructor");
     this.firebaseService.getLocationListData().subscribe(
     (data) => {
+      console.log("data");
+      console.log(data);
       data.forEach(
       (d) => {
+        console.log(d);
         this.cards.push(
           {
             title: d.data().title,
             subtitle: d.data().subtitle,
             description: d.data().description,
+            rating: d.data().rating,
+            address: d.data().address,
+            hours: d.data().hours,
           }
         );
 
@@ -75,9 +80,6 @@ export class BrowsePage implements OnInit {
   ngOnInit() {
   }
 
-  goToDiscountLocation() {
-    this.navCtrl.navigateForward('/discount-location')
-  }
 
 
   // const searchbar = document.querySelector('ion-searchbar');

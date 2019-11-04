@@ -18,15 +18,14 @@
   <ion-card class="locationInfoCard">
 
     <div class="titleBGColor">
-      <ion-card-title style="color: white;">Restaurant Title</ion-card-title>
+      <ion-card-title style="color: white;">{{title}}</ion-card-title>
     </div>
 
     <div>
-      <ion-card-content class="locationDetails">Star Rating</ion-card-content>
-      <ion-card-content class="locationDetails">Address</ion-card-content>
-      <ion-card-content class="locationDetails">Hours of Operation</ion-card-content>
-      <ion-card-content class="locationDetails">This is a description. We can use this area for any extra content
-      we might need. This is an example of longer paragraph text.</ion-card-content>
+      <ion-card-content class="locationDetails">{{rating}}</ion-card-content>
+      <ion-card-content class="locationDetails">{{address}}</ion-card-content>
+      <ion-card-content class="locationDetails">{{hours}}</ion-card-content>
+      <ion-card-content class="locationDetails">{{description}}</ion-card-content>
     </div>
 
   </ion-card>
