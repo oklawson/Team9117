@@ -17,6 +17,11 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+import { Nav } from 'src/app/services/nav.service';
+
+
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -29,6 +34,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFirestoreModule, // imports firebase/firestore
     AngularFireAuthModule, // imports firebase/auth
     AngularFireStorageModule, // imports firebase/storage
+
     ],
   providers: [
     StatusBar,
@@ -36,7 +42,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: FirestoreSettingsToken, useValue: {} },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-	  NativeStorage
+	  NativeStorage,
+    Nav
   ],
   bootstrap: [AppComponent]
 })

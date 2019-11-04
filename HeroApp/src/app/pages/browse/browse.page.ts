@@ -3,7 +3,7 @@ import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../../popover/popover.component';
 
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { NavController } from '@ionic/angular';
+import { Nav } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-browse',
@@ -26,7 +26,7 @@ export class BrowsePage implements OnInit {
   ];
 
   constructor(
-    public navCtrl: NavController,
+    public nav: Nav,
     private firebaseService: FirebaseService,
     public popoverController: PopoverController
   )
@@ -35,8 +35,6 @@ export class BrowsePage implements OnInit {
     (data) => {
       data.forEach(
       (d) => {
-        console.log(d.data());
-
         this.cards.push(
           {
             title: d.data().title,
@@ -47,6 +45,11 @@ export class BrowsePage implements OnInit {
 
       });
     });
+  }
+
+  goToDetailPage(inp: any) {
+    console.log(inp);
+    this.nav.push('/discount-location', {data: inp});
   }
 
   async presentPopover(ev: any) {

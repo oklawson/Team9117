@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Nav } from 'src/app/services/nav.service';
+
 
 @Component({
   selector: 'app-discount-location',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiscountLocationPage implements OnInit {
 
-  constructor() { }
+  constructor(public nav: Nav) { 
+    console.log("on discount page");
+    console.log(nav.get('data'));
+  }
 
   ngOnInit() {
   }
