@@ -1,24 +1,28 @@
+// div {
+//   position: absolute;
+// }
+
 .backgroundImage {
   width: 100%;
   height: 200px;
-  z-index: -1; // -1 z-index should put image behind card, but not currently working
+  position: absolute;
 }
-
 
 .locationInfoCard {
   width: 100%;
-  height: 400px;
+  height: 100%;
   border-radius: 8px;
   margin-left: 0px;
-  margin-top: 0px;
+  margin-top: 150px;
 }
 
 .locationDetails{
-  padding-top: 5px;
+  padding-top: 10px;
 }
 
 .titleBGColor {
   background-color: #3869C5;
   height: 50px;
+  width: 100%;
   padding: 10px;
 }

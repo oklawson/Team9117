@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../../popover/popover.component';
 
+
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { NavController } from '@ionic/angular';
+import { Nav } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-browse',
@@ -14,39 +15,47 @@ export class BrowsePage implements OnInit {
 
   cards = [
     {
-      title: "Title 1",
-      subtitle: "Subtitle 1",
-      description: "Description 1",
+      title: "Title",
+      subtitle: "Subtitle",
+      description: "Description",
+      rating: "Rating",
+      address: "Address",
+      hours: "Hours",
     },
-    {
-      title: "Title 2",
-      subtitle: "Subtitle 2",
-      description: "Description 2",
-    }
   ];
 
   constructor(
-    public navCtrl: NavController,
+    public nav: Nav,
     private firebaseService: FirebaseService,
     public popoverController: PopoverController
   )
   {
+    console.log("Browse page constructor");
     this.firebaseService.getLocationListData().subscribe(
     (data) => {
+      console.log("data");
+      console.log(data);
       data.forEach(
       (d) => {
-        console.log(d.data());
-
+        console.log(d);
         this.cards.push(
           {
             title: d.data().title,
             subtitle: d.data().subtitle,
             description: d.data().description,
+            rating: d.data().rating,
+            address: d.data().address,
+            hours: d.data().hours,
           }
         );
 
       });
     });
+  }
+
+  goToDetailPage(inp: any) {
+    console.log(inp);
+    this.nav.push('/discount-location', {data: inp});
   }
 
   async presentPopover(ev: any) {
@@ -70,6 +79,7 @@ export class BrowsePage implements OnInit {
 
   ngOnInit() {
   }
+
 
 
   // const searchbar = document.querySelector('ion-searchbar');

@@ -10,18 +10,24 @@
 <ion-content>
 
   <!-- Discount Location header image -->
+  <div class="backgroundImage">
   <img src="./assets/DLImage.jpg" class="backgroundImage">
+  </div>
 
   <!-- Information on discount location -->
   <ion-card class="locationInfoCard">
+
     <div class="titleBGColor">
-      <ion-card-title style="color: white;">Restaurant Title</ion-card-title>
-
-      <ion-card-content class="locationDetails">Star Rating</ion-card-content>
-      <ion-card-content class="locationDetails">Address</ion-card-content>
-      <ion-card-content class="locationDetails">Hours of Operation</ion-card-content>
+      <ion-card-title style="color: white;">{{title}}</ion-card-title>
     </div>
-  </ion-card>
 
+    <div>
+      <ion-card-content class="locationDetails">{{rating}}</ion-card-content>
+      <ion-card-content class="locationDetails">{{address}}</ion-card-content>
+      <ion-card-content class="locationDetails">{{hours}}</ion-card-content>
+      <ion-card-content class="locationDetails">{{description}}</ion-card-content>
+    </div>
+
+  </ion-card>
 
 </ion-content>
