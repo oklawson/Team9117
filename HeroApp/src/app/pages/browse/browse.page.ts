@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { NavController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/services/firebase.service';
+=======
+import { PopoverController } from '@ionic/angular';
+import { PopoverComponent } from '../../popover/popover.component';
+
+
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { Nav } from 'src/app/services/nav.service';
+>>>>>>> ab43e3cacf2b9a2cabe01e41e227dab1821d8878
 
 @Component({
   selector: 'app-browse',
@@ -12,6 +21,7 @@ export class BrowsePage implements OnInit {
 
   cards = [
     {
+<<<<<<< HEAD
       title: "Title 1",
       subtitle: "Subtitle 1",
       description: "Description 1",
@@ -34,17 +44,39 @@ export class BrowsePage implements OnInit {
   {
     // searchbar.addEventListener('ionInput', handleInput);
 
+=======
+      title: "Title",
+      subtitle: "Subtitle",
+      description: "Description",
+      rating: "Rating",
+      address: "Address",
+      hours: "Hours",
+    },
+  ];
+
+  constructor(
+    public nav: Nav,
+    private firebaseService: FirebaseService,
+    public popoverController: PopoverController
+  )
+  {
+    console.log("Browse page constructor");
+>>>>>>> ab43e3cacf2b9a2cabe01e41e227dab1821d8878
     this.firebaseService.getLocationListData().subscribe(
     (data) => {
+      console.log("data");
+      console.log(data);
       data.forEach(
       (d) => {
-        console.log(d.data());
-
+        console.log(d);
         this.cards.push(
           {
             title: d.data().title,
             subtitle: d.data().subtitle,
             description: d.data().description,
+            rating: d.data().rating,
+            address: d.data().address,
+            hours: d.data().hours,
           }
         );
 
@@ -53,6 +85,7 @@ export class BrowsePage implements OnInit {
 
   }
 
+<<<<<<< HEAD
   // handleInput(event) {
   //   const query = event.target.value.toLowerCase();
   //   requestAnimationFrame(() => {
@@ -64,11 +97,35 @@ export class BrowsePage implements OnInit {
   // }
 
   ngOnInit() {
+=======
+  goToDetailPage(inp: any) {
+    console.log(inp);
+    this.nav.push('/discount-location', {data: inp});
+>>>>>>> ab43e3cacf2b9a2cabe01e41e227dab1821d8878
   }
 
-  goToDiscountLocation() {
-    this.navCtrl.navigateForward('/discount-location')
+  async presentPopover(ev: any) {
+    console.log(ev);
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: true
+    });
+
+    popover.onDidDismiss().then((dataReturned) => {
+      console.log(dataReturned);
+      const locationType = dataReturned.data.locationType;
+      const sortBy = dataReturned.data.sortBy;
+
+      //TODO: implement filtering based on returned data
+    });
+
+    return await popover.present();
   }
+
+  ngOnInit() {
+  }
+
 
 
   // const searchbar = document.querySelector('ion-searchbar');
