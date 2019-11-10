@@ -42,6 +42,7 @@ export class BrowsePage implements OnInit {
         if (!d.data().Title)
         {
           console.log(d.data());
+          console.log(d.data().LocationType);
         }
         else
         {
@@ -96,11 +97,15 @@ export class BrowsePage implements OnInit {
     });
 
     popover.onDidDismiss().then((dataReturned) => {
-      console.log(dataReturned);
+      console.log("data returned: " + dataReturned);
       const locationType = dataReturned.data.locationType;
-      // const sortBy = dataReturned.data.sortBy;
 
+      // edit to have first char uppercase - wasn't working all lowercase 
+      const filteredLocation = locationType.charAt(0).toUpperCase() + locationType.slice(1);
+      // const sortBy = dataReturned.data.sortBy;
+      console.log("location type: " + filteredLocation);
       //TODO: implement filtering based on returned data
+      this.cards = this.allCards.filter(card => card.LocationType.includes(filteredLocation));
     });
 
     return await popover.present();
