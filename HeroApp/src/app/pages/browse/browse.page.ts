@@ -18,7 +18,7 @@ export class BrowsePage implements OnInit {
     {
       Title: "Title",
       Location: "Location",
-      Discount: "Discount", 
+      Discount: "Discount",
       Limitations: "Limitations",
       UnlimitedUsage: "UnlimitedUsage",
       LocationType: "LocationType"
@@ -54,7 +54,7 @@ export class BrowsePage implements OnInit {
               Limitations: d.data().Limitations,
               UnlimitedUsage: d.data().UnlimitedUsage,
               LocationType: d.data().LocationType,
-            
+
             }
           );
           this.allCards.push(
@@ -84,7 +84,7 @@ export class BrowsePage implements OnInit {
     const searchBar = document.querySelector('ion-searchbar');
     console.log(searchBar.value);
 
-    this.cards = this.allCards.filter(card => card.Title.includes(searchBar.value));
+    this.cards = this.allCards.filter(card => card.Title.toLowerCase().includes(searchBar.value.toLowerCase()));
   }
 
 
@@ -100,11 +100,10 @@ export class BrowsePage implements OnInit {
       console.log("data returned: " + dataReturned);
       const locationType = dataReturned.data.locationType;
 
-      // edit to have first char uppercase - wasn't working all lowercase 
+      // edit to have first char uppercase - wasn't working all lowercase
       const filteredLocation = locationType.charAt(0).toUpperCase() + locationType.slice(1);
-      // const sortBy = dataReturned.data.sortBy;
       console.log("location type: " + filteredLocation);
-      //TODO: implement filtering based on returned data
+
       this.cards = this.allCards.filter(card => card.LocationType.includes(filteredLocation));
     });
 
