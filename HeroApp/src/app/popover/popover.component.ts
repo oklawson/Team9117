@@ -24,12 +24,12 @@ export class PopoverComponent implements OnInit {
   }
 
   apply() {
-    let sortBy = document.querySelector('#sort-by') as HTMLInputElement;
+    // let sortBy = document.querySelector('#sort-by') as HTMLInputElement;
     let locationType = document.querySelector('#location-type') as HTMLInputElement;
 
     this.events.publish('fromPopoverEvent');
     const onClosedData = {
-      sortBy: sortBy.value,
+      // sortBy: sortBy.value,
       locationType: locationType.value
     };
     this.popoverController.dismiss(onClosedData);

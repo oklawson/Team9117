@@ -25,6 +25,8 @@ export class BrowsePage implements OnInit {
     },
   ];
 
+  allCards = [];
+
   constructor(
     public nav: Nav,
     private firebaseService: FirebaseService,
@@ -49,6 +51,16 @@ export class BrowsePage implements OnInit {
             hours: d.data().hours,
           }
         );
+        this.allCards.push(
+          {
+            title: d.data().title,
+            subtitle: d.data().subtitle,
+            description: d.data().description,
+            rating: d.data().rating,
+            address: d.data().address,
+            hours: d.data().hours,
+          }
+        );
 
       });
     });
@@ -59,6 +71,13 @@ export class BrowsePage implements OnInit {
     console.log(inp);
     this.nav.push('/discount-location', {data: inp});
 
+  }
+
+  search(query) {
+    const searchBar = document.querySelector('ion-searchbar');
+    console.log(searchBar.value);
+
+    this.cards = this.allCards.filter(card => card.title.includes(searchBar.value));
   }
 
 
@@ -73,7 +92,7 @@ export class BrowsePage implements OnInit {
     popover.onDidDismiss().then((dataReturned) => {
       console.log(dataReturned);
       const locationType = dataReturned.data.locationType;
-      const sortBy = dataReturned.data.sortBy;
+      // const sortBy = dataReturned.data.sortBy;
 
       //TODO: implement filtering based on returned data
     });
