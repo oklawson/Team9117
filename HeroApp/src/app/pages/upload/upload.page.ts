@@ -46,10 +46,7 @@ export class UploadPage implements OnInit {
 
           console.log(Title+" "+Location+" "+Discount+" "+Limitations+" "+UnlimitedUsage+" "+LocationType);
           this.firebaseService.uploadDiscountLocation(Title, Location, Discount, Limitations, UnlimitedUsage, LocationType);
-
-        }
-
-        
+        }     
       })
     });
   }

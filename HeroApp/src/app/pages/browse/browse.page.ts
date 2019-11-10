@@ -16,12 +16,12 @@ export class BrowsePage implements OnInit {
 
   cards = [
     {
-      title: "Title",
-      subtitle: "Subtitle",
-      description: "Description",
-      rating: "Rating",
-      address: "Address",
-      hours: "Hours",
+      Title: "Title",
+      Location: "Location",
+      Discount: "Discount", 
+      Limitations: "Limitations",
+      UnlimitedUsage: "UnlimitedUsage",
+      LocationType: "LocationType"
     },
   ];
 
@@ -37,30 +37,36 @@ export class BrowsePage implements OnInit {
     this.firebaseService.getLocationListData().subscribe(
     (data) => {
       console.log("data");
-      console.log(data);
       data.forEach(
       (d) => {
-        console.log(d);
-        this.cards.push(
-          {
-            title: d.data().title,
-            subtitle: d.data().subtitle,
-            description: d.data().description,
-            rating: d.data().rating,
-            address: d.data().address,
-            hours: d.data().hours,
-          }
-        );
-        this.allCards.push(
-          {
-            title: d.data().title,
-            subtitle: d.data().subtitle,
-            description: d.data().description,
-            rating: d.data().rating,
-            address: d.data().address,
-            hours: d.data().hours,
-          }
-        );
+        if (!d.data().Title)
+        {
+          console.log(d.data());
+        }
+        else
+        {
+          this.cards.push(
+            {
+              Title: d.data().Title,
+              Location: d.data().Location,
+              Discount: d.data().Discount,
+              Limitations: d.data().Limitations,
+              UnlimitedUsage: d.data().UnlimitedUsage,
+              LocationType: d.data().LocationType,
+            
+            }
+          );
+          this.allCards.push(
+            {
+              Title: d.data().Title,
+              Location: d.data().Location,
+              Discount: d.data().Discount,
+              Limitations: d.data().Limitations,
+              UnlimitedUsage: d.data().UnlimitedUsage,
+              LocationType: d.data().LocationType,
+            }
+          );
+        }
 
       });
     });
@@ -77,7 +83,7 @@ export class BrowsePage implements OnInit {
     const searchBar = document.querySelector('ion-searchbar');
     console.log(searchBar.value);
 
-    this.cards = this.allCards.filter(card => card.title.includes(searchBar.value));
+    this.cards = this.allCards.filter(card => card.Title.includes(searchBar.value));
   }
 
 

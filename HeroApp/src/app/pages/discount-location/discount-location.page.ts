@@ -10,11 +10,12 @@ import { Nav } from 'src/app/services/nav.service';
 export class DiscountLocationPage implements OnInit {
 
 
-  title: string | null;
-  rating: string | null;
-  address: string | null;
-  hours: string | null;
-  description: string | null;
+  Title: string | null;
+  Location: string | null;
+  Discount: string | null;
+  Limitations: string | null;
+  UnlimitedUsage: string | null;
+  LocationType: string | null;
 
 
   constructor(public nav: Nav) { 
@@ -22,11 +23,12 @@ export class DiscountLocationPage implements OnInit {
     console.log(nav.get('data'));
     let data = nav.get('data');
 
-    this.title = data.title;
-    this.rating = data.rating;
-    this.address = data.address;
-    this.hours = data.hours;
-    this.description = data.description;
+    this.Title = data.Title;
+    this.Location = data.Location;
+    this.Discount = data.Discount;
+    this.Limitations = data.Limitations;
+    this.UnlimitedUsage = data.UnlimitedUsage;
+    this.LocationType = data.LocationType;
   }
 
   ngOnInit() {
