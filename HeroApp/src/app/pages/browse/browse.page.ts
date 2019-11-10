@@ -11,6 +11,7 @@ import { Nav } from 'src/app/services/nav.service';
   templateUrl: './browse.page.html',
   styleUrls: ['./browse.page.scss'],
 })
+
 export class BrowsePage implements OnInit {
 
   cards = [
@@ -51,12 +52,15 @@ export class BrowsePage implements OnInit {
 
       });
     });
+
   }
 
   goToDetailPage(inp: any) {
     console.log(inp);
     this.nav.push('/discount-location', {data: inp});
+
   }
+
 
   async presentPopover(ev: any) {
     console.log(ev);
@@ -79,6 +83,7 @@ export class BrowsePage implements OnInit {
 
   ngOnInit() {
   }
+
 
 
 

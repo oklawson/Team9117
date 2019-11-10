@@ -10,9 +10,10 @@
 <ion-content>
   <div id="searchbar">
     <ion-searchbar animated class="search"></ion-searchbar>
-    <ion-icon (click)="presentPopover($event)" name="options" size="large"></ion-icon>
+    <ion-icon (click)="presentPopover($event)" name="options" size="large" class="filter"></ion-icon>
     <ion-popover-controller></ion-popover-controller>
   </div>
+
 
   <ion-card class="browseCard" (click)="goToDetailPage(card)" *ngFor="let card of cards">
     <img src="./assets/DLImage.jpg" class="dlImage">
@@ -21,7 +22,7 @@
       <ion-card-subtitle>{{card.subtitle}}</ion-card-subtitle>
       {{card.description}}
     </div>
-    <ion-button (click)="goToDetailPage(card)">DETAILS</ion-button>
+    <!-- <ion-button (click)="goToDetailPage(card)">DETAILS</ion-button> -->
   </ion-card>
 
   <ion-card class="browseCard">
