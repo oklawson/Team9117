@@ -9,7 +9,7 @@
 
 <ion-content>
   <div id="searchbar">
-    <ion-searchbar animated class="search"></ion-searchbar>
+    <ion-searchbar animated class="search" (ionChange)="search()"></ion-searchbar>
     <ion-icon (click)="presentPopover($event)" name="options" size="large" class="filter"></ion-icon>
     <ion-popover-controller></ion-popover-controller>
   </div>
