@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>discountLocation</ion-title>
+    <ion-title>Discount Location Info</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,15 +18,34 @@
   <ion-card class="locationInfoCard">
 
     <div class="titleBGColor">
-      <ion-card-title style="color: white;">{{Title}}</ion-card-title>
+      <ion-card-title style="color: white; font-size: 22px;">{{Title}}</ion-card-title>
     </div>
 
     <div>
-      <ion-card-content class="locationDetails">{{Location}}</ion-card-content>
-      <ion-card-content class="locationDetails">{{Discount}}</ion-card-content>
+      <div class="locationDetails">
+        <ion-card-content class="title">Location</ion-card-content>
+        <ion-card-content class="information">{{Location}}</ion-card-content>
+      </div>
+
+      <div class="locationDetails">
+        <ion-card-content class="title">Discount</ion-card-content>
+        <ion-card-content class="information">{{Discount}}</ion-card-content>
+      </div>
+
+      <div class="locationDetails">
+        <ion-card-content class="title">Limitations</ion-card-content>
+        <ion-card-content class="information">{{Limitations}}</ion-card-content>
+      </div>
+
+      <div class="locationDetails">
+        <ion-card-content class="title">Unlimited Usage</ion-card-content>
+        <ion-card-content class="information">{{UnlimitedUsage}}</ion-card-content>
+      </div>
+      <!-- <ion-card-content class="locationDetails">{{Location}}</ion-card-content> -->
+      <!-- <ion-card-content class="locationDetails">{{Discount}}</ion-card-content>
       <ion-card-content class="locationDetails">{{Limitations}}</ion-card-content>
-      <ion-card-content class="locationDetails">{{UnlimitedUsage}}</ion-card-content>
-      <ion-card-content class="locationDetails">{{LocationType}}</ion-card-content>
+      <ion-card-content class="locationDetails">{{UnlimitedUsage}}</ion-card-content> -->
+      <!-- <ion-card-content class="locationDetails">{{LocationType}}</ion-card-content> -->
     </div>
 
   </ion-card>
