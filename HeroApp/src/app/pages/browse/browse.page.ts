@@ -18,7 +18,7 @@ export class BrowsePage implements OnInit {
     {
       Title: "Title",
       Location: "Location",
-      Discount: "Discount", 
+      Discount: "Discount",
       Limitations: "Limitations",
       UnlimitedUsage: "UnlimitedUsage",
       LocationType: "LocationType"
@@ -42,6 +42,7 @@ export class BrowsePage implements OnInit {
         if (!d.data().Title)
         {
           console.log(d.data());
+          console.log(d.data().LocationType);
         }
         else
         {
@@ -53,7 +54,7 @@ export class BrowsePage implements OnInit {
               Limitations: d.data().Limitations,
               UnlimitedUsage: d.data().UnlimitedUsage,
               LocationType: d.data().LocationType,
-            
+
             }
           );
           this.allCards.push(
@@ -83,7 +84,7 @@ export class BrowsePage implements OnInit {
     const searchBar = document.querySelector('ion-searchbar');
     console.log(searchBar.value);
 
-    this.cards = this.allCards.filter(card => card.Title.includes(searchBar.value));
+    this.cards = this.allCards.filter(card => card.Title.toLowerCase().includes(searchBar.value.toLowerCase()));
   }
 
 
@@ -96,11 +97,14 @@ export class BrowsePage implements OnInit {
     });
 
     popover.onDidDismiss().then((dataReturned) => {
-      console.log(dataReturned);
+      console.log("data returned: " + dataReturned);
       const locationType = dataReturned.data.locationType;
-      // const sortBy = dataReturned.data.sortBy;
 
-      //TODO: implement filtering based on returned data
+      // edit to have first char uppercase - wasn't working all lowercase
+      const filteredLocation = locationType.charAt(0).toUpperCase() + locationType.slice(1);
+      console.log("location type: " + filteredLocation);
+
+      this.cards = this.allCards.filter(card => card.LocationType.includes(filteredLocation));
     });
 
     return await popover.present();
