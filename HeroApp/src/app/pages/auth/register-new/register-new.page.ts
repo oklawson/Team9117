@@ -79,14 +79,14 @@ export class RegisterNewPage implements OnInit {
   };
 
   registerNew(form: NgForm) {
-    // extract the actual password  
+    // extract the actual password
     form.value.password = form.value.matching_passwords.password;
 
     this.authService.doRegister(form.value)
     .then(
     res => {
       this.navCtrl.navigateRoot('/home');
-    }, 
+    },
     err => {
       console.log(err);
     });

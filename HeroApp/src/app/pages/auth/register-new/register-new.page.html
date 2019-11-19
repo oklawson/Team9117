@@ -7,6 +7,8 @@
             <h3>Create your account</h3>
           </div>
 
+
+          <!-- Name form box and validation -->
           <ion-card>
             <ion-item>
               <ion-label position="floating" color="primary">First Name</ion-label>
@@ -32,6 +34,7 @@
               </ng-container>
             </div>
 
+            <!-- Email form box and validation -->
             <ion-item>
               <ion-label position="floating" color="primary">Email</ion-label>
               <ion-input type="text" formControlName="email"></ion-input>
@@ -45,6 +48,7 @@
             </div>
 
 
+            <!-- First Password form box and validation -->
             <div formGroupName="matching_passwords">
               <ion-item>
                 <ion-label position="floating" color="primary">Password</ion-label>
@@ -59,6 +63,7 @@
                 </ng-container>
               </div>
 
+              <!-- Confirm Password formbox and validation -->
               <ion-item>
                 <ion-label position="floating" color="primary">Confirm Password</ion-label>
                 <ion-input type="password" formControlName="confirm_password"></ion-input>
@@ -84,7 +89,8 @@
               </ng-container>
             </div>
 
-            <ion-item>
+            <!-- Terms and Conditions acceptance. No T&C linked so it's disabled. -->
+            <!-- <ion-item>
               <ion-label color="primary">I accept terms and conditions</ion-label>
               <ion-checkbox color="primary" formControlName="terms"></ion-checkbox>
             </ion-item>
@@ -94,7 +100,7 @@
                   <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
                 </div>
               </ng-container>
-            </div>
+            </div> -->
 
             <div class="button-div">
               <ion-button color="primary" size="med" class="submit-btn" type="submit" [disabled]="!validations_form.valid">Register</ion-button>

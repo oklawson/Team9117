@@ -14,8 +14,8 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private firebaseService: FirebaseService,  
-  ) 
+    private firebaseService: FirebaseService,
+  )
   {
     this.firebaseService.getCurrentUser().subscribe(
     (data) => {
@@ -42,9 +42,9 @@ export class HomePage {
     this.navCtrl.navigateForward('/payment-info')
   }
 
-  goToRewards() {
-    this.navCtrl.navigateForward('/rewards')
-  }
+  // goToRewards() {
+  //   this.navCtrl.navigateForward('/rewards')
+  // }
 
   goToBrowse() {
     this.navCtrl.navigateForward('/browse')
