@@ -18,6 +18,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { Nav } from 'src/app/services/nav.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 
 
@@ -26,10 +27,10 @@ import { Nav } from 'src/app/services/nav.service';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-  BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    HttpClientModule, 
+  BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app
     AngularFirestoreModule, // imports firebase/firestore
     AngularFireAuthModule, // imports firebase/auth
@@ -43,7 +44,8 @@ import { Nav } from 'src/app/services/nav.service';
     { provide: FirestoreSettingsToken, useValue: {} },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 	  NativeStorage,
-    Nav
+    Nav,
+    Geolocation
   ],
   bootstrap: [AppComponent]
 })
