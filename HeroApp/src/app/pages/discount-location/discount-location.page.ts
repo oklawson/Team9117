@@ -9,7 +9,7 @@ import { Nav } from 'src/app/services/nav.service';
 })
 export class DiscountLocationPage implements OnInit {
 
-
+  Image: string | null;
   Title: string | null;
   Location: string | null;
   Discount: string | null;
@@ -23,6 +23,7 @@ export class DiscountLocationPage implements OnInit {
     console.log(nav.get('data'));
     let data = nav.get('data');
 
+    this.Image = data.Image;
     this.Title = data.Title;
     this.Location = data.Location;
     this.Discount = data.Discount;

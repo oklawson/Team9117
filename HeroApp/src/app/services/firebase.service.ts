@@ -21,9 +21,10 @@ export class FirebaseService {
   ){
   }
 
-  uploadDiscountLocation(Title, Location, Discount, Limitations, UnlimitedUsage, LocationType)
+  uploadDiscountLocation(Image, Title, Location, Discount, Limitations, UnlimitedUsage, LocationType)
   {
     return this.afs.collection('locations/').doc(Title).set({
+      Image: Image,
       Title: Title,
       Location: Location,
       Discount: Discount,

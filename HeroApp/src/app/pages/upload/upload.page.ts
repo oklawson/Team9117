@@ -35,7 +35,7 @@ export class UploadPage implements OnInit {
         {
           let d = rows[i]; // entire location
           console.log(d);
-
+          let Image = d[0];
           let Title = d[1];
           let Location = d[2];
           let Discount = d[3];
@@ -44,8 +44,8 @@ export class UploadPage implements OnInit {
           let LocationType = d[6];
 
 
-          console.log(Title+" "+Location+" "+Discount+" "+Limitations+" "+UnlimitedUsage+" "+LocationType);
-          this.firebaseService.uploadDiscountLocation(Title, Location, Discount, Limitations, UnlimitedUsage, LocationType);
+          console.log(Image+" "+Title+" "+Location+" "+Discount+" "+Limitations+" "+UnlimitedUsage+" "+LocationType);
+          this.firebaseService.uploadDiscountLocation(Image, Title, Location, Discount, Limitations, UnlimitedUsage, LocationType);
         }     
       })
     });
