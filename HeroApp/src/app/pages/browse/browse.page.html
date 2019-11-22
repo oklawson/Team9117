@@ -16,7 +16,9 @@
 
 
   <ion-card class="browseCard" (click)="goToDetailPage(card)" *ngFor="let card of cards">
-    <img src="./assets/DLImage.jpg" class="dlImage">
+
+    <img *ngIf="card.Image != null" src="{{card.Image}}" alt="No Image" class="dlImage">
+    <img *ngIf="card.Image == null" src="./assets/DLImage.jpg" alt="No Image" class="dlImage">
     <div class="blContent">
       <ion-card-title>{{card.Title}}</ion-card-title>
       <!-- <ion-card-subtitle>{{card.Location}}</ion-card-subtitle> -->

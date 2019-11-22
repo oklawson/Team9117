@@ -11,7 +11,8 @@
 
   <!-- Discount Location header image -->
   <div class="backgroundImage">
-  <img src="./assets/DLImage.jpg" class="backgroundImage">
+    <img *ngIf="Image != null" src="{{Image}}" alt="No Image" class="backgroundImage">
+    <img *ngIf="Image == null" src="./assets/DLImage.jpg" alt="No Image" class="backgroundImage">
   </div>
 
   <!-- Information on discount location -->

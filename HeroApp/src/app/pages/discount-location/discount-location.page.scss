@@ -3,9 +3,12 @@
 // }
 
 .backgroundImage {
-  width: 100%;
-  height: 200px;
-  position: absolute;
+  width: 90%;
+  height: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 .locationInfoCard {
@@ -13,7 +16,7 @@
   height: 100%;
   border-radius: 8px;
   margin-left: 0px;
-  margin-top: 150px;
+  margin-top: 8px;
 }
 
 .locationDetails{
