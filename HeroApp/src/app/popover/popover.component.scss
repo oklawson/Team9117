@@ -6,6 +6,28 @@ ion-label {
   font-weight: bold;
 }
 
-ion-title {
-  text-align: center;
+// ion-title {
+//   text-align: center;
+//   margin-left: 1px;
+//   margin-top: 3px;
+// }
+
+ion-select {
+  margin-left: 1px;
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-inline-start: 5px;
+  padding-inline-end: 5px;
 }
+
+ion-button {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  // padding-top: 10px;
+  // padding-bottom: 3px;
+}
+
+// .filterCard {
+//   width: 900px;
+// }
