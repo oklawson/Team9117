@@ -16,6 +16,7 @@ export class BrowsePage implements OnInit {
 
   cards = [
     {
+      Image: "Image",
       Title: "Title",
       Location: "Location",
       Discount: "Discount",
@@ -41,24 +42,25 @@ export class BrowsePage implements OnInit {
       (d) => {
         if (!d.data().Title)
         {
-          console.log(d.data());
-          console.log(d.data().LocationType);
+          //console.log(d.data());
+          //console.log(d.data().LocationType);
         }
         else
         {
           this.cards.push(
             {
+              Image: d.data().Image,
               Title: d.data().Title,
               Location: d.data().Location,
               Discount: d.data().Discount,
               Limitations: d.data().Limitations,
               UnlimitedUsage: d.data().UnlimitedUsage,
               LocationType: d.data().LocationType,
-
             }
           );
           this.allCards.push(
             {
+              Image: d.data().Image,
               Title: d.data().Title,
               Location: d.data().Location,
               Discount: d.data().Discount,
