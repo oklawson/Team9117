@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Nav } from 'src/app/services/nav.service';
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-discount-location',
@@ -30,6 +30,10 @@ export class DiscountLocationPage implements OnInit {
     this.Limitations = data.Limitations;
     this.UnlimitedUsage = data.UnlimitedUsage;
     this.LocationType = data.LocationType;
+  }
+
+  displayGoogleMap () {
+
   }
 
   ngOnInit() {
