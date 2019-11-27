@@ -15,15 +15,15 @@ import { Nav } from 'src/app/services/nav.service';
 export class BrowsePage implements OnInit {
 
   cards = [
-    {
-      Image: "Image",
-      Title: "Title",
-      Location: "Location",
-      Discount: "Discount",
-      Limitations: "Limitations",
-      UnlimitedUsage: "UnlimitedUsage",
-      LocationType: "LocationType"
-    },
+    // {
+    //   Image: "Image",
+    //   Title: "Title",
+    //   Location: "Location",
+    //   Discount: "Discount",
+    //   Limitations: "Limitations",
+    //   UnlimitedUsage: "UnlimitedUsage",
+    //   LocationType: "LocationType"
+    // },
   ];
 
   allCards = [];
