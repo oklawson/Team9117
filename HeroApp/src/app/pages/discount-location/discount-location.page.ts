@@ -41,6 +41,13 @@ export class DiscountLocationPage {
     this.UnlimitedUsage = data.UnlimitedUsage;
     this.LocationType = data.LocationType;
 
+    var regex = "^[1-9]\d{2}-\d{3}-\d{4}";
+    console.log("this location has a phone number: " + this.Location.includes(regex));
+    if(this.Location.includes('Call')) {
+      console.log("This location has no listed address.");
+    }
+    console.log("location: " + this.Location);
+
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
       // data can be a set of coordinates, or an error (if an error occurred).
@@ -63,9 +70,10 @@ export class DiscountLocationPage {
 
   initMap() {
     //console.log(el);
-    console.log("inside initMap function");
-    this.map = GoogleMaps.create(this.element.nativeElement);
-    this.map.one(GoogleMapsEvent.MAP_READY).then((data: any) => {
+    if(!this.Location.includes('Call')) {
+      console.log("inside initMap function");
+      this.map = GoogleMaps.create(this.element.nativeElement);
+      this.map.one(GoogleMapsEvent.MAP_READY).then((data: any) => {
       let coordinates: LatLng = new LatLng(33.7756, -84.3963);
       let position = {
         target: coordinates,
@@ -83,6 +91,7 @@ export class DiscountLocationPage {
         marker.showInfoWindow();
       });
     })
+    }
   }
 
   displayGoogleMap () {
