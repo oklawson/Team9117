@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 import { HomePage } from './home.page';
 
@@ -18,6 +19,7 @@ import { HomePage } from './home.page';
       }
     ])
   ],
+  providers: [ GoogleMaps ],
   declarations: [HomePage]
 })
 export class HomePageModule {}

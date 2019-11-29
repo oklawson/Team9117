@@ -11,6 +11,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
@@ -99,4 +101,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <preference name="AIzaSyCwsfN6crCKEaFFPHANHiwPS-WuvoOt0Fk" value="(api key)" />
+    <preference name="AIzaSyCwsfN6crCKEaFFPHANHiwPS-WuvoOt0Fk" value="(api key)" />
 </widget>

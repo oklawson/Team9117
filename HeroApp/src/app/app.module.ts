@@ -20,6 +20,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { Nav } from 'src/app/services/nav.service';
+import { google } from 'google-maps';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 
 
@@ -28,7 +30,7 @@ import { Nav } from 'src/app/services/nav.service';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-  BrowserModule, 
+    BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
     HttpClientModule, 
@@ -47,7 +49,8 @@ import { Nav } from 'src/app/services/nav.service';
 	  NativeStorage,
     Nav,
     Geolocation,
-    NativeGeocoder
+    NativeGeocoder,
+    GoogleMaps,
   ],
   bootstrap: [AppComponent]
 })
