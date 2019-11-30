@@ -48,7 +48,12 @@
       <ion-card-content class="locationDetails">{{UnlimitedUsage}}</ion-card-content> -->
       <!-- <ion-card-content class="locationDetails">{{LocationType}}</ion-card-content> -->
     </div>
-
+    <div class="center">
+        <!-- <ion-button size="med" (click)="goToRewards()">My Rewards</ion-button>
+        <br> -->
+        <!-- this needs to be changed to redirect user to google maps-->
+        <ion-button size="med" (click)="goToBrowse()">Start Navigation</ion-button>
+    </div>
     <div #map style="height:100%;"></div>
   </ion-card>
 
