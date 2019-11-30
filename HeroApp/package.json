@@ -30,15 +30,19 @@
     "@ionic-native/sqlite": "^5.12.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
+    "cordova-android": "^8.1.0",
     "cordova-browser": "6.0.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-nativegeocoder": "^3.2.2",
     "cordova-plugin-nativestorage": "^2.3.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "cordova-sqlite-storage": "^3.3.0",
+    "cordova-support-google-services": "^1.3.2",
     "core-js": "^2.5.4",
     "firebase": "^6.6.2",
     "googlemaps": "^1.12.0",
+    "phonegap-plugin-multidex": "^1.0.0",
+    "phonegap-plugin-push": "^2.3.0",
     "read-excel-file": "^4.0.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -90,10 +94,15 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "phonegap-plugin-push": {
+        "ANDROID_SUPPORT_V13_VERSION": "27.+",
+        "FCM_VERSION": "17.0.+"
+      }
     },
     "platforms": [
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }
