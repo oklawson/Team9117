@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/platforms/android/CordovaLib/CordovaLib.iml" filepath="$PROJECT_DIR$/HeroApp/platforms/android/CordovaLib/CordovaLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-geolocation/src/cordova-plugin-geolocation.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-geolocation/src/cordova-plugin-geolocation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-googlemaps/src/cordova-plugin-googlemaps.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-googlemaps/src/cordova-plugin-googlemaps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-ionic-keyboard/src/cordova-plugin-ionic-keyboard.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-ionic-keyboard/src/cordova-plugin-ionic-keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-ionic-webview/src/cordova-plugin-ionic-webview.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-ionic-webview/src/cordova-plugin-ionic-webview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-nativegeocoder/src/cordova-plugin-nativegeocoder.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-nativegeocoder/src/cordova-plugin-nativegeocoder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-nativestorage/src/cordova-plugin-nativestorage.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-nativestorage/src/cordova-plugin-nativestorage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/cordova-sqlite-storage/src/cordova-sqlite-storage.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/cordova-sqlite-storage/src/cordova-sqlite-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/node_modules/cordova-android/framework/framework.iml" filepath="$PROJECT_DIR$/HeroApp/node_modules/cordova-android/framework/framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/node_modules/cordova-android/test/app/src/main/main.iml" filepath="$PROJECT_DIR$/HeroApp/node_modules/cordova-android/test/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/plugins/phonegap-plugin-push/src/phonegap-plugin-push.iml" filepath="$PROJECT_DIR$/HeroApp/plugins/phonegap-plugin-push/src/phonegap-plugin-push.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/node_modules/cordova-android/spec/fixtures/org.test.plugins.dummyplugin/plugin-lib/plugin-lib.iml" filepath="$PROJECT_DIR$/HeroApp/node_modules/cordova-android/spec/fixtures/org.test.plugins.dummyplugin/plugin-lib/plugin-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/node_modules/cordova-android/spec/fixtures/org.test.plugins.dummyplugin/plugin-lib2/plugin-lib2.iml" filepath="$PROJECT_DIR$/HeroApp/node_modules/cordova-android/spec/fixtures/org.test.plugins.dummyplugin/plugin-lib2/plugin-lib2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HeroApp/node_modules/cordova-android/bin/templates/project/project.iml" filepath="$PROJECT_DIR$/HeroApp/node_modules/cordova-android/bin/templates/project/project.iml" />
+    </modules>
+  </component>
+</project>

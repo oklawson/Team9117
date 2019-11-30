@@ -22,7 +22,9 @@ export class BrowsePage implements OnInit {
     //   Discount: "Discount",
     //   Limitations: "Limitations",
     //   UnlimitedUsage: "UnlimitedUsage",
-    //   LocationType: "LocationType"
+    //   LocationType: "LocationType",
+    //   Latitude: "Latitude",
+    //   Longitude: "Longitude"
     // },
   ];
 
@@ -47,6 +49,7 @@ export class BrowsePage implements OnInit {
         }
         else
         {
+        
           this.cards.push(
             {
               Image: d.data().Image,
@@ -56,6 +59,8 @@ export class BrowsePage implements OnInit {
               Limitations: d.data().Limitations,
               UnlimitedUsage: d.data().UnlimitedUsage,
               LocationType: d.data().LocationType,
+              Latitude: d.data().Latitude,
+              Longitude: d.data().Longitude
             }
           );
           this.allCards.push(
@@ -67,6 +72,8 @@ export class BrowsePage implements OnInit {
               Limitations: d.data().Limitations,
               UnlimitedUsage: d.data().UnlimitedUsage,
               LocationType: d.data().LocationType,
+              Latitude: d.data().Latitude,
+              Longitude: d.data().Longitude
             }
           );
         }
@@ -101,6 +108,7 @@ export class BrowsePage implements OnInit {
     popover.onDidDismiss().then((dataReturned) => {
       console.log("data returned: " + dataReturned);
       const locationType = dataReturned.data.locationType;
+      console.log("lat: " + dataReturned.data.Latitude);
 
       // edit to have first char uppercase - wasn't working all lowercase
       const filteredLocation = locationType.charAt(0).toUpperCase() + locationType.slice(1);

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Nav } from 'src/app/services/nav.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
@@ -25,9 +25,18 @@ export class DiscountLocationPage {
   UserLat: number | null;
   UserLong: number | null;
   UserLocation: string | null;
+  Latitude: string | null;
+  Longitude: string | null;
 
-  constructor(public nav: Nav, private geolocation: Geolocation, private geocoder: NativeGeocoder, private platform: Platform,
-    public googleMaps: GoogleMaps, public navController: NavController, public elem: ElementRef) { 
+  constructor(public nav: Nav, 
+              private geolocation: Geolocation, 
+              private geocoder: NativeGeocoder, 
+              private platform: Platform,
+              public googleMaps: GoogleMaps, 
+              public navController: NavController, 
+              public elem: ElementRef, 
+              public zone: NgZone) { 
+
     console.log("on discount page");
     console.log(nav.get('data'));
     let data = nav.get('data');
@@ -40,13 +49,10 @@ export class DiscountLocationPage {
     this.Limitations = data.Limitations;
     this.UnlimitedUsage = data.UnlimitedUsage;
     this.LocationType = data.LocationType;
-
-    var regex = "^[1-9]\d{2}-\d{3}-\d{4}";
-    console.log("this location has a phone number: " + this.Location.includes(regex));
-    if(this.Location.includes('Call')) {
-      console.log("This location has no listed address.");
-    }
-    console.log("location: " + this.Location);
+    this.Latitude = data.Latitude;
+    //console.log("latitude: " + this.Latitude);
+    this.Longitude = data.Longitude;
+    //console.log("longitude: " + this.Longitude);
 
     let watch = this.geolocation.watchPosition();
     watch.subscribe((data) => {
@@ -70,33 +76,55 @@ export class DiscountLocationPage {
 
   initMap() {
     //console.log(el);
-    if(!this.Location.includes('Call')) {
-      console.log("inside initMap function");
+    if(!this.Latitude.includes("null")) {
+      console.log("inside initMap function; now calling forwardGeocode");
+      // this.forwardGeocode(this.Location);
       this.map = GoogleMaps.create(this.element.nativeElement);
       this.map.one(GoogleMapsEvent.MAP_READY).then((data: any) => {
-      let coordinates: LatLng = new LatLng(33.7756, -84.3963);
-      let position = {
-        target: coordinates,
-        zoom: 17
-      };
+        var latString = +this.Latitude;
+        var longString = + this.Longitude;
+        console.log("lat string: " + latString);
+        console.log("long string: " + longString);
+        let coordinates: LatLng = new LatLng(latString, longString);
+        let position = {
+          target: coordinates,
+          zoom: 15
+        };
 
-      this.map.animateCamera(position);
-      let markerOptions: MarkerOptions = {
-        position: coordinates,
-        // icon: "assets/images/icons8-Marker-64.png",
-        title: 'Testing Maps'
-      };
+        this.map.animateCamera(position);
+        let markerOptions: MarkerOptions = {
+          position: coordinates,
+          // icon: "assets/images/icons8-Marker-64.png",
+          title: this.Title
+        };
 
-      const marker = this.map.addMarker(markerOptions).then((marker: Marker) => {
-        marker.showInfoWindow();
-      });
-    })
+        const marker = this.map.addMarker(markerOptions).then((marker: Marker) => {
+          marker.showInfoWindow();
+        });
+      })
+    } else {
+      console.log("This location has no listed address.");
     }
   }
 
-  displayGoogleMap () {
-
-  }
+  // forwardGeocode(address) {
+  //   console.log("entered forwardGeocode function");
+  //   if (this.platform.is('cordova')) {
+  //     console.log("inside convertToCoordinates; is cordova");
+  //     let options: NativeGeocoderOptions = {
+  //       useLocale: true,
+  //       maxResults: 5
+  //     };
+  //     this.geocoder.forwardGeocode(address, options).then((result: NativeGeocoderResult[]) => {
+  //       this.zone.run(() => {
+  //         this.LocationLat = result[0].latitude;
+  //         this.LocationLong = result[0].longitude;
+  //         console.log("location latitude: " + this.LocationLat);
+  //         console.log("location long: " + this.LocationLong);
+  //       });
+  //     })
+  //   }
+  // }
 
   ngOnInit() {
   }

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="libs2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/HeroApp/plugins/cordova-sqlite-storage/node_modules/cordova-sqlite-storage-dependencies/libs/sqlite-native-driver.jar!/" />
+      <root url="jar://$PROJECT_DIR$/HeroApp/plugins/cordova-sqlite-storage/node_modules/cordova-sqlite-storage-dependencies/libs/sqlite-connector.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
