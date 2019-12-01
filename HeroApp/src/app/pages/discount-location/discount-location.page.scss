@@ -4,11 +4,12 @@
 
 .backgroundImage {
   width: 100%;
-  min-height: 160px;
-  max-height: 160px;
+  min-height: 150px;
+  max-height: 180px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  // position: absolute;
 
 }
 
@@ -19,6 +20,11 @@
   margin-left: 0px;
   margin-top: 0px;
   padding-top: 0px;
+}
+
+.navigationButton {
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .locationDetails{
