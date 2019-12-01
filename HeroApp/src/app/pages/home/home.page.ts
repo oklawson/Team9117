@@ -14,6 +14,8 @@ import { GoogleMaps,
          MarkerOptions,
          Marker } from '@ionic-native/google-maps';
 
+import { FCM } from '@ionic-native/fcm/ngx';
+
 declare var google: any;
 
 @Component({
@@ -39,9 +41,27 @@ export class HomePage {
     private geocoder: NativeGeocoder,
     private platform: Platform,
     public googleMaps: GoogleMaps,
-    public zone: NgZone
+    public zone: NgZone,
+    private fcm: FCM,
+    public plt: Platform
   )
   {
+    this.plt.ready()
+      .then(() => {
+        this.fcm.onNotification().subscribe(data => {
+          if (data.wasTapped) {
+            console.log("Received in background");
+          } else {
+            console.log("Received in foreground");
+          };
+        });
+
+        this.fcm.onTokenRefresh().subscribe(token => {
+          // Register your new token in your back-end if you want
+          // backend.registerToken(token);
+        });
+      })
+
     //this.getUserLocation();
     this.firebaseService.getCurrentUser().subscribe(
     (data) => {
@@ -76,7 +96,7 @@ export class HomePage {
             this.UserLat = resp.coords.latitude;
             this.UserLong = resp.coords.longitude;
             console.log("user's latitude: " + this.UserLat);
-            console.log("user's longitude: " + this.UserLong);  
+            console.log("user's longitude: " + this.UserLong);
             console.log("user's location within reverse geocoding: " + this.UserLocation);
             })
             .catch((error: any) => console.log("geocoding error: " + error));
@@ -129,6 +149,19 @@ export class HomePage {
 
   goToManageAccount() {
     this.navCtrl.navigateForward('/manage-account')
+  }
+
+  subscribeToTopic() {
+    this.fcm.subscribeToTopic('enappd');
+  }
+  getToken() {
+    this.fcm.getToken().then(token => {
+      // Register your new token in your back-end if you want
+      // backend.registerToken(token);
+    });
+  }
+  unsubscribeFromTopic() {
+    this.fcm.unsubscribeFromTopic('enappd');
   }
 
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "772903185008",
+    "firebase_url": "https://testheroapp-f893e.firebaseio.com",
+    "project_id": "testheroapp-f893e",
+    "storage_bucket": "testheroapp-f893e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772903185008:android:7e4928e9e75484a54e62b5",
+        "android_client_info": {
+          "package_name": "com.herocard.heroapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772903185008-fdunoelt4tea0emk30i5fuf1l4jttgaj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2LODk35HLV3DMndfqjV2l62PnhIR_VrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772903185008-fdunoelt4tea0emk30i5fuf1l4jttgaj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

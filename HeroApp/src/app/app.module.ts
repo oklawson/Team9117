@@ -23,17 +23,31 @@ import { Nav } from 'src/app/services/nav.service';
 import { google } from 'google-maps';
 import { GoogleMaps } from '@ionic-native/google-maps';
 
+import { Firebase } from '@ionic-native/firebase/ngx';
+import { FcmService } from './services/fcm.service';
 
+import { Geofence } from '@ionic-native/geofence/ngx';
 
+import { FCM } from '@ionic-native/fcm/ngx';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD4DDqXdfTdThfFd-7QH1T1kGI3byoWyYw",
+  authDomain: "testheroapp-f893e.firebaseapp.com",
+  databaseURL: "https://testheroapp-f893e.firebaseio.com",
+  projectId: "testheroapp-f893e",
+  storageBucket: "testheroapp-f893e.appspot.com",
+  messagingSenderId: "772903185008",
+  appId: "1:772903185008:web:d5a454ea07bd68994e62b5"
+};
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule, 
-    HttpClientModule, 
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app
     AngularFirestoreModule, // imports firebase/firestore
     AngularFireAuthModule, // imports firebase/auth
@@ -51,6 +65,10 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     Geolocation,
     NativeGeocoder,
     GoogleMaps,
+    Firebase,
+    FcmService,
+    FCM,
+    Geofence
   ],
   bootstrap: [AppComponent]
 })
