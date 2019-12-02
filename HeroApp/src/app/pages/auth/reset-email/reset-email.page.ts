@@ -19,13 +19,22 @@ export class ResetEmailPage implements OnInit {
 
   pass: string;
   validations_form: FormGroup;
+  CurrentEmail;
 
   constructor(
     public navCtrl: NavController,
     private firebaseService: FirebaseService,
     private alertService: AlertService,
     public formBuilder: FormBuilder,
-  ) { }
+  ) { 
+    this.firebaseService.getCurrentUser().subscribe(
+      (data) => {
+        console.log("data: " + data);
+        console.log(data.data());
+        let email = data.data().email;
+        this.CurrentEmail = email;
+      });
+  }
 
   ngOnInit() {
 
