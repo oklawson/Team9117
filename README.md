@@ -9,12 +9,12 @@ This GitHub contains the code base for teh Hero Card Discount Program Applicatio
 
 ### Dependencies
 #### Ionic
-Ionic CLI                     : 5.2.6 (/usr/local/lib/node_modules/ionic)
-Ionic Framework               : @ionic/angular 4.10.0
-@angular-devkit/build-angular : 0.803.6
-@angular-devkit/schematics    : 8.1.3
-@angular/cli                  : 8.3.1
-@ionic/angular-toolkit        : 2.0.0
+<p>Ionic CLI                     : 5.2.6 (/usr/local/lib/node_modules/ionic)
+<p>Ionic Framework               : @ionic/angular 4.10.0
+<p>@angular-devkit/build-angular : 0.803.6
+<p>@angular-devkit/schematics    : 8.1.3
+<p>@angular/cli                  : 8.3.1
+<p>@ionic/angular-toolkit        : 2.0.0
 
 #### Cordova
 Cordova CLI       : 9.0.0 (cordova-lib@9.0.1)
