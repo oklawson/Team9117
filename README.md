@@ -1,5 +1,5 @@
 # Team9117
-###Introduction
+### Introduction
 Repository for Junior Design, Hero App project
 
 ### Prerequisites
