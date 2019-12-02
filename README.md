@@ -38,10 +38,10 @@ Our repo can be downloaded through the command line with the following command:
 ### Build
 No build has been completed for this application; this repository contains raw code only. At the time of incorporating their APIs, the client will be able to generate an APK (built application).
 <br>
-For serving the rough application to a browser for development purposes, use the following command: <br>
-`ionic cordova run browser`
+For serving the rough application to a browser for development purposes, use the following command: `ionic cordova run browser`
 <br>
 <strong><i>Build Instructions</i></strong>
+<br>
 To build for android refer to the documentation from ionic:
 <ul><li>https://ionicframework.com/docs/publishing/play-store</li>
   <li>https://ionicframework.com/docs/installation/android</li></ul>
@@ -58,8 +58,7 @@ Once you have our Github repo and ionic installed, you can have the program auto
 ### Running Application
 Once that command is complete, you can run `ionic serve`  or  `ionic cordova run browser` to run a local server that allows you to explore a development build of the app.
 <br>
-When using ionic serve, any changes made in the project’s source code will be auto compiled to the local server.
-
+When using `ionic serve`, any changes made in the project’s source code will be auto compiled to the local server.
 
 ### New Features
 <ul>
