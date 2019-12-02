@@ -2,20 +2,20 @@
 ###Introduction
 Repository for Junior Design, Hero App project
 
-###Prerequisites
+### Prerequisites
 
-###Dependencies
+### Dependencies
 
-###Download
+### Download
 
-###Build
+### Build
 
-###Installation
+### Installation
 
-###Running Application
+### Running Application
 
-###New Features
+### New Features
 
-###Bug Fixes
+### Bug Fixes
 
-###Known Bugs
+### Known Bugs
