@@ -29,6 +29,11 @@
       </div>
 
       <div class="locationDetails">
+          <ion-card-content class="title">Distance From You</ion-card-content>
+          <ion-card-content class="information">{{DistanceFromUser}}</ion-card-content>
+        </div>
+
+      <div class="locationDetails">
         <ion-card-content class="title">Discount</ion-card-content>
         <ion-card-content class="information">{{Discount}}</ion-card-content>
       </div>
@@ -54,7 +59,7 @@
         <!-- this needs to be changed to redirect user to google maps-->
         <ion-button class="navigationButton" size="med" (click)="goToBrowse()">Start Navigation</ion-button>
     </div>
-    <div #map style="height:100%;"></div>
+    <div #map style="height:50%;"></div>
   </ion-card>
 
 </ion-content>

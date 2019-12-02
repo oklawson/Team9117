@@ -4,6 +4,9 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderOptions, NativeGeocoderResult } from '@ionic-native/native-geocoder/ngx';
 import { Platform, NavController } from '@ionic/angular';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, MarkerOptions, Marker, Environment } from '@ionic-native/google-maps';
+import { database } from 'firebase';
+
+declare var google;
 
 @Component({
   selector: 'app-discount-location',
@@ -27,6 +30,7 @@ export class DiscountLocationPage {
   UserLocation: string | null;
   Latitude: string | null;
   Longitude: string | null;
+  DistanceFromUser: string | null;
 
   constructor(public nav: Nav, 
               private geolocation: Geolocation, 
@@ -59,8 +63,10 @@ export class DiscountLocationPage {
       // data can be a set of coordinates, or an error (if an error occurred).
       this.UserLat = data.coords.latitude;
       this.UserLong = data.coords.longitude;
-      console.log("user's latitude: " + this.UserLat);
-      console.log("user's longitude: " + this.UserLong);
+      this.DistanceFromUser =  this.distanceFromUser().toFixed(2) + ' miles';
+      //console.log("distance from user: " + this.DistanceFromUser);
+      // console.log("user's latitude: " + this.UserLat);
+      // console.log("user's longitude: " + this.UserLong);
     });
   }
 
@@ -75,14 +81,15 @@ export class DiscountLocationPage {
   }
 
   initMap() {
-    //console.log(el);
     if(!this.Latitude.includes("null")) {
-      console.log("inside initMap function; now calling forwardGeocode");
-      // this.forwardGeocode(this.Location);
+
+      var origin = new LatLng(this.UserLat, this.UserLong);
+      var latString = +this.Latitude;
+      var longString = + this.Longitude;
+      var dest = new LatLng(latString, longString);
+
       this.map = GoogleMaps.create(this.element.nativeElement);
       this.map.one(GoogleMapsEvent.MAP_READY).then((data: any) => {
-        var latString = +this.Latitude;
-        var longString = + this.Longitude;
         console.log("lat string: " + latString);
         console.log("long string: " + longString);
         let coordinates: LatLng = new LatLng(latString, longString);
@@ -94,7 +101,6 @@ export class DiscountLocationPage {
         this.map.animateCamera(position);
         let markerOptions: MarkerOptions = {
           position: coordinates,
-          // icon: "assets/images/icons8-Marker-64.png",
           title: this.Title
         };
 
@@ -107,24 +113,24 @@ export class DiscountLocationPage {
     }
   }
 
-  // forwardGeocode(address) {
-  //   console.log("entered forwardGeocode function");
-  //   if (this.platform.is('cordova')) {
-  //     console.log("inside convertToCoordinates; is cordova");
-  //     let options: NativeGeocoderOptions = {
-  //       useLocale: true,
-  //       maxResults: 5
-  //     };
-  //     this.geocoder.forwardGeocode(address, options).then((result: NativeGeocoderResult[]) => {
-  //       this.zone.run(() => {
-  //         this.LocationLat = result[0].latitude;
-  //         this.LocationLong = result[0].longitude;
-  //         console.log("location latitude: " + this.LocationLat);
-  //         console.log("location long: " + this.LocationLong);
-  //       });
-  //     })
-  //   }
-  // }
+  findRadius(x) {
+    return x * Math.PI / 180;
+  }
+
+  distanceFromUser() {
+    var R = 6378137; // mean radius of the earth
+    var latNumber = +this.Latitude;
+    var longNumber = +this.Longitude;
+    var latDifference = this.findRadius(this.UserLat - latNumber);
+    var longDifference = this.findRadius(this.UserLong - longNumber);
+    var a = Math.sin(latDifference / 2) * Math.sin(latDifference / 2) +
+            Math.cos(this.findRadius(this.UserLat)) * Math.cos(this.findRadius(latNumber)) *
+            Math.sin(longDifference / 2) * Math.sin(longDifference / 2);
+    var b = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * b;
+    var miles = d / 1609.344;
+    return miles;
+   }
 
   ngOnInit() {
   }
