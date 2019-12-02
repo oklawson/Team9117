@@ -27,7 +27,15 @@ NodeJS : v10.16.3 (/usr/local/bin/node)
 npm    : 6.13.1
 
 ### Download
+Use the following command to download the GitHub repo: <br>
 `git clone https://github.com/oklawson/Team9117.git`
+<br>
+For more information on installing Git, consider the following link: <br>
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+<br>
+Download ionic via https://ionicframework.com/docs/installation/cli.  This link will also instruct you to download Node.js and npm if you do not already have them installed.
+
 
 ### Build
 No build has been completed for this application; this repository contains raw code only. At the time of incorporating their APIs, the client will be able to generate an APK (built application).
