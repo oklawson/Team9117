@@ -1,6 +1,10 @@
 # Team9117
 ## Introduction
-This GitHub contains the code base for teh Hero Card Discount Program Application as built for Mr. Ben Sweet and employees. The application is built with Ionic/Angular and is set up for the developers to plug in their own software and APIs.
+The Hero Card is a membership-based program which provides discounts to annual cardholders, specifically catering to first responders who can participate in the program at a reduced or waived price. Examples of locations offering discounts for Hero Card members include Shane’s BBQ, Checkers, Steak and Shake, and Popeye’s; in addition to restaurants, golf facilities, entertainment companies, and miscellaneous businesses are partnered with the Hero Card organization to provide discounts. 
+Currently, members redeem their benefits by providing a physical card at discount locations, which presents problems for members living in a world increasingly dominated by e-commerce.
+</p>
+Our team has been working with Mr. Ben Sweet, founder of the Hero Card program, to mitigate these problems by transitioning away from physical cards to an entirely digital experience.
+
 
 ## Installation Guide
 ### Prerequisites
@@ -90,16 +94,13 @@ If there are multiple issues after more development has been done, sometimes it 
   <li>Reset password functionality</li>
   <li>Change email address functionality</li>
   <li>Logout functionality</li></ul>
-  <br>
 
 ### BUG FIXES
 <ol><li>Fixed images displaying incorrectly</li>
     <li>Fixed filtering so you could only select one filter type if wanted, not having to pick a filter for both categories.</li></ol>
-<br>
 
 ### KNOWN BUGS
 <ol><li><strong>Distance from the user</strong> does not properly update at times unless the browser is refreshed (unknown cause).</li>
   <li><strong>Manage Payment:</strong> the client has their own secure functionality for this, so they will be connecting it with the app.</li>
   <li><strong>Push Notifications</strong>: Must be deployed to an emulator to test, which we did not have.</li></ol>
-<br>
 
