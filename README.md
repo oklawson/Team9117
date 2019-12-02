@@ -27,6 +27,7 @@ NodeJS : v10.16.3 (/usr/local/bin/node)
 npm    : 6.13.1
 
 ### Download
+`git clone https://github.com/oklawson/Team9117.git`
 
 ### Build
 
