@@ -45,7 +45,6 @@ For serving the rough application to a browser for development purposes, use the
 To build for android refer to the documentation from ionic:
 <ul><li>https://ionicframework.com/docs/publishing/play-store</li>
   <li>https://ionicframework.com/docs/installation/android</li></ul>
-  <br>
 To build for IOS refer to the documentation from ionic:
 <ul><li>https://ionicframework.com/docs/publishing/app-store</li>
   <li>https://ionicframework.com/docs/installation/ios</li></ul>
