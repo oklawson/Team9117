@@ -9,25 +9,25 @@ This GitHub contains the code base for teh Hero Card Discount Program Applicatio
 
 ### Dependencies
 #### Ionic
-<p>Ionic CLI                     : 5.2.6 (/usr/local/lib/node_modules/ionic)
-<p>Ionic Framework               : @ionic/angular 4.10.0
-<p>@angular-devkit/build-angular : 0.803.6
-<p>@angular-devkit/schematics    : 8.1.3
-<p>@angular/cli                  : 8.3.1
-<p>@ionic/angular-toolkit        : 2.0.0
+<p><strong>Ionic CLI</strong>                     : 5.2.6 (/usr/local/lib/node_modules/ionic)
+<p><strong>Ionic Framework</strong>               : @ionic/angular 4.10.0
+<p><strong>@angular-devkit/build-angular</strong>  : 0.803.6
+<p><strong>@angular-devkit/schematics</strong>     : 8.1.3
+<p><strong>@angular/cli</strong>                   : 8.3.1
+<p><strong>@ionic/angular-toolkit</strong>         : 2.0.0
 
 #### Cordova
-Cordova CLI       : 9.0.0 (cordova-lib@9.0.1)
-Cordova Platforms : android 8.1.0, browser 6.0.0
-Cordova Plugins   : cordova-plugin-ionic-keyboard 2.2.0, cordova-plugin-ionic-webview 4.1.3, (and 14 other plugins)
+<p><strong>Cordova CLI</strong>        : 9.0.0 (cordova-lib@9.0.1)
+<p><strong>Cordova Platforms</strong>  : android 8.1.0, browser 6.0.0
+<p><strong>Cordova Plugins</strong>    : cordova-plugin-ionic-keyboard 2.2.0, cordova-plugin-ionic-webview 4.1.3, (and 14 other plugins)
 
 #### Utility
-cordova-res : 0.8.1 
-native-run  : 0.2.9
+<p><strong>cordova-res</strong>  : 0.8.1 
+<p><strong>native-run</strong>   : 0.2.9
 
 #### System
-NodeJS : v10.16.3 (/usr/local/bin/node)
-npm    : 6.13.1
+<p><strong>NodeJS</strong>  : v10.16.3 (/usr/local/bin/node)
+<p><strong>npm</strong>     : 6.13.1
 
 ### Download
 Download our github repo via command window.  Git installation can be found here: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git.  
