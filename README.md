@@ -83,9 +83,9 @@ When using `ionic serve`, any changes made in the project’s source code will b
 
 
 ### Troubleshooting
-If there is an error regarding the favicon then run ionic repair in the terminal/command prompt.
+If there is an error regarding the favicon then run `ionic repair` in the terminal/command prompt.
 <br>
-We had a common issue where ionic repair wouldn’t download the stream.js package automatically.  If the app refuses to run after running the above command, try `npm install stream`.
+We had a common issue where `ionic repair` wouldn’t download the stream.js package automatically.  If the app refuses to run after running the above command, try `npm install stream`.
 <br>
 If there are multiple issues after more development has been done, sometimes it is best to delete the Team9117 folder and redownload it from the git repo by using the command below in the terminal:
 <br>
