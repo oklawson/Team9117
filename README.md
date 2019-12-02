@@ -10,28 +10,28 @@ This GitHub contains the code base for teh Hero Card Discount Program Applicatio
 
 ### Dependencies
 #### IONIC
-<p><strong>Ionic CLI</strong>                     : 5.2.6 (/usr/local/lib/node_modules/ionic)
-<p><strong>Ionic Framework</strong>               : @ionic/angular 4.10.0
-<p><strong>@angular-devkit/build-angular</strong>  : 0.803.6
-<p><strong>@angular-devkit/schematics</strong>     : 8.1.3
-<p><strong>@angular/cli</strong>                   : 8.3.1
-<p><strong>@ionic/angular-toolkit</strong>         : 2.0.0
+<p><i><strong>Ionic CLI</strong></i>                     : 5.2.6 (/usr/local/lib/node_modules/ionic)
+<p><i><strong>Ionic Framework</strong></i>                : @ionic/angular 4.10.0
+<p><i><strong>@angular-devkit/build-angular</strong></i>   : 0.803.6
+<p><i><strong>@angular-devkit/schematics</strong></i>     : 8.1.3
+<p><i><strong>@angular/cli</strong></i>                    : 8.3.1
+<p><i><strong>@ionic/angular-toolkit</strong></i>          : 2.0.0
 <br>
   
 #### CORDOVA
-<p><strong>Cordova CLI</strong>        : 9.0.0 (cordova-lib@9.0.1)
-<p><strong>Cordova Platforms</strong>  : android 8.1.0, browser 6.0.0
-<p><strong>Cordova Plugins</strong>    : cordova-plugin-ionic-keyboard 2.2.0, cordova-plugin-ionic-webview 4.1.3, (and 14 other plugins)
+<p><i><strong>Cordova CLI</strong></i>         : 9.0.0 (cordova-lib@9.0.1)
+<p><i><strong>Cordova Platforms</strong></i>   : android 8.1.0, browser 6.0.0
+<p><i><strong>Cordova Plugins</strong></i>     : cordova-plugin-ionic-keyboard 2.2.0, cordova-plugin-ionic-webview 4.1.3, (and 14 other plugins)
 <br>
   
 #### UTILITY
-<p><strong>cordova-res</strong>  : 0.8.1 
-<p><strong>native-run</strong>   : 0.2.9
+<p><i><strong>cordova-res</strong></i>   : 0.8.1 
+<p><i><strong>native-run</strong></i>    : 0.2.9
 <br>
   
 #### SYSTEM
-<p><strong>NodeJS</strong>  : v10.16.3 (/usr/local/bin/node)
-<p><strong>npm</strong>     : 6.13.1
+<p><i><strong>NodeJS</strong></i>   : v10.16.3 (/usr/local/bin/node)
+<p><i><strong>npm</strong></i>      : 6.13.1
 <br>
   
 ### DOWNLOAD
@@ -54,7 +54,6 @@ To build for android refer to the documentation from ionic:
 To build for IOS refer to the documentation from ionic:
 <ul><li>https://ionicframework.com/docs/publishing/app-store</li>
   <li>https://ionicframework.com/docs/installation/ios</li></ul>
-  <br>
 
 ### INSTALLATION
 Download ionic via https://ionicframework.com/docs/installation/cli.  This link will also instruct you to download Node.js and npm if you do not already have them installed.
@@ -77,6 +76,7 @@ If there are multiple issues after more development has been done, sometimes it 
 <br>
 `git clone https://github.com/oklawson/Team9117.git`
 <br>
+</p>
 
 ## Release Notes
 ### NEW FEATURES
