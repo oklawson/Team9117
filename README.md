@@ -1,6 +1,6 @@
 # Team9117
 ### Introduction
-Repository for Junior Design, Hero App project
+This GitHub contains the code base for teh Hero Card Discount Program Application as built for Mr. Ben Sweet and employees. The application is built with Ionic/Angular and is set up for the developers to plug in their own software and APIs.
 
 ### Prerequisites
 
@@ -30,12 +30,28 @@ npm    : 6.13.1
 `git clone https://github.com/oklawson/Team9117.git`
 
 ### Build
+No build has been completed for this application; this repository contains raw code only. At the time of incorporating their APIs, the client will be able to generate an APK (built application).
+<br>
+For serving the rough application to a browser for development purposes, use the following command: <br>
+`ionic cordova run browser`
 
 ### Installation
 
 ### Running Application
 
 ### New Features
+<ul>
+  <li>Login & register functionality</li>
+  <li>Create new account</li>
+  <li>Pull QR code for user from database and display</li>
+  <li>Search discount locations by typing</li>
+  <li>Filter discount locations by type of location</li>
+  <li>Discount location details page shows information regarding discount</li>
+  <li>Reset password functionality</li>
+  <li>Change email address functionality</li>
+  <li>Logout functionality</li></ul>
+
+
 
 ### Bug Fixes
 
