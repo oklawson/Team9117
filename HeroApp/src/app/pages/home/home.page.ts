@@ -31,6 +31,7 @@ export class HomePage {
   UserLong;
   UserLocation;
   userLocationFromLatLng;
+  WelcomeMessage;
 
   constructor(
     public navCtrl: NavController,
@@ -50,6 +51,8 @@ export class HomePage {
       let firstName = data.data().firstName;
       let lastName = data.data().lastName;
       let email = data.data().email;
+
+      this.WelcomeMessage = "Welcome, " + firstName;
 
       let formatted = firstName + " " + lastName + ", " + email;
       console.log(formatted);
